@@ -8,8 +8,10 @@ function App() {
 
     return (
     <>
-        <button onClick={() => navigate('/')}>Home</button>
-        <button onClick={() => navigate('/projects')}>About</button>
+        <div className="navbar">
+            <button onClick={() => navigate('/')}>Home</button>
+            <button onClick={() => navigate('/projects')}>Projects</button>
+        </div>
         <Routes>
             <Route path="/" element={ <Home/> } />
             <Route path="/projects" element={ <Projects/> } />

@@ -4,19 +4,20 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://xeg28.github.io/PersonalWebsite/",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "mv index.html gitignore && npm run build",
+    "deploy": "gh-pages -d dist",
+    "postdeploy": "mv gitignore index.html"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.18.0",
+    "react-scroll": "^1.9.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
