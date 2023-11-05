@@ -2,6 +2,7 @@ import React from 'react';
 import '../index.css';
 
 function Projects() {
+  document.title = "Projects";
   return (
     <div className="App">
       <header className="App-header">

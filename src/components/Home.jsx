@@ -2,11 +2,13 @@ import React from 'react';
 import '../index.css';
 
 function Home() {
+  document.title = "Home";
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="container">
+      <div className="Name">
         <h1>Emmanuel Gonzalez</h1>
-      </header>
+        <h2>Computer Science Student</h2>
+      </div>
     </div>
   );
 }

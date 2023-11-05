@@ -1,0 +1,56 @@
+.social-group {
+	padding: 0.6em 1.5em;
+}
+
+.btn-group {
+	padding: 0.6em 1.5em;
+}
+
+.github {  background-image: url('../assets/github.svg');}
+.linkedin { background-image: url('../assets/linkedin.png');}
+
+.icon {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-size: 30px 30px;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #232323;
+	border-radius: 8px;
+	width: 100vw;
+	height: 2.5rem;
+	margin: 0 auto;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position:sticky;
+	top: 0;
+	z-index: 3;
+}
+
+.navbar a {
+	text-align: center;
+	margin: 1rem;
+	color: white;
+	font-size: larger;
+	font-weight: 300;
+}
+
+.navbar a.active {
+	outline: none;
+	color: #5bb9fc;
+	font-weight: 400;
+}
+
+.navbar a.route:hover {
+	color: rgb(200,200,200);
+	border-color:#1b1b1b;
+	cursor: pointer;
+	border-bottom: 3px solid #5bb9fc;
+	padding-bottom: 3px;
+}
