@@ -12,10 +12,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --fs-xl: clamp(1rem, 1.3em + 2vw, 5rem);
+  --fs-600: clamp(1rem, 1em + 1vw, 2rem);
+  --fs-400: clamp(.8rem, .5em + .5vw, 1rem);
 }
+
+.fs-xl {
+  font-size: var(--fs-xl);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
 
 a {
   font-weight: 500;
+  font-size: 1rem;
   color: #646cff;
   text-decoration: inherit;
 }
@@ -60,8 +74,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: black;
+    background-color: #dedede;
   }
   a:hover {
     color: #747bff;

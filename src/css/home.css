@@ -2,17 +2,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 10rem);
-    margin: 0 auto;
 }
 
-.grid {
+.card {
     display: grid;
     background: hsl(0 0% 100%/0.1);
-    grid-gap: min(2rem, 5vw);
-    width: 75vw;
+    grid-template-columns: 1fr 2fr;
+    max-width: 75vw;
+    column-gap: 1rem;
     border-radius: 3vw;
-    padding: 3vw;
+    margin: 1rem;
+    padding: 2em;
+}
+
+.pic-text {
+    display: none;
+}
+
+
+@media (max-width: 950px) {
+    .card {
+        background: hsl(0 0% 100%/0.1);
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+        max-width: 90vw;
+        padding: 1em;
+    }
+    .pic-text {
+        display:contents;
+    }
+    .name-occ {
+        display:none;
+    }
+    #pic-name {
+        display: inline-block;
+    }
 }
 
 .picture-frame {
@@ -22,12 +46,21 @@
     height: 300px;
     display:inline-block;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .contact-info {
-    display:flexbox;
+    display:flex;
+    flex-direction: column;
     text-align: left;
     max-width: 250px;
+    margin-top: 1rem;
+}
+
+.about-me {
+    display:grid;
+    margin: 0 auto;
+    align-items: start;
 }
 
 .contact a{
@@ -48,12 +81,14 @@
     align-items: center;
     gap: 1rem;
     padding-bottom: 1em;
+    margin-top: 1rem;
 }
 
 #phone {
     background-image: url(../assets/phone.png);
     filter: invert(1);
 }
+
 .phone {
     display:flex;
     align-items: center;
@@ -65,14 +100,31 @@
     place-items: center;
 }
 
-@media (min-width: 700px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
+
+#name {
+    font-weight: 400;
+}
+
+.about-me-container {
+    text-align: left;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+
+#paragraph {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: var(--fs-400);
 }
 
 @media (prefers-color-scheme: light) { 
     #phone {filter: invert(0);}
     #email {filter: invert(0);}
     .picture-frame {background-color: #232323;}
+    .card {background-color: #dedede;}
+    .contact a {text-shadow: .5px .5px .5px black}
 }
+
