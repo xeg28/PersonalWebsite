@@ -86,7 +86,16 @@
 
 @media (prefers-color-scheme: light) {
 	.navbar {background-color: #dedede;}
-	.nav-btn-icon {filter: invert(1);}
+	.nav-btn-icon {filter: invert(.75);}
+	.github {filter: invert(.75);}
+	.linkedin {filter: invert(.75);}
+	.navbar a {
+		color:black;
+		font-weight: 350;
+	}
+	.navbar a.route:hover {
+		color: #232323;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -104,6 +113,8 @@
 		position:relative;
 		display:flex;
 	}
+
+	.navbar a {color: white}
 
 	.menu-open .nav-content {
 		visibility: visible;

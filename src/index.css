@@ -15,7 +15,22 @@
 
   --fs-xl: clamp(1rem, 1.3em + 2vw, 5rem);
   --fs-600: clamp(1rem, 1em + 1vw, 2rem);
+  --fs-500: clamp(.9rem, .8em + .8vw, 1.5rem);
   --fs-400: clamp(.8rem, .5em + .5vw, 1rem);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fs-400 {
+  font-size: var(--fs-400)
+}
+
+.fs-500 {
+  font-size: var(--fs-500)
 }
 
 .fs-xl {
@@ -48,9 +63,41 @@ body {
   overflow-y: auto;
 }
 
+.card {
+  background: hsl(0 0% 100%/0.1);
+  max-width: 75vw;
+  border-radius: 3vw;
+  margin: 1rem;
+  padding: 2em;
+}
+
+@media (max-width: 950px) {
+  .card {
+      max-width: 90vw;
+      padding: 1em;
+  }
+}
+
+.label-theme {
+  font-family: monospace;
+  font-size: var(--fs-600);
+  border-bottom: 4px solid #5bb9fc;
+}
+
+.paragraph {
+  display: inline-block;
+  font-family: monospace;
+  margin-top: 1rem;
+  font-size: var(--fs-400);
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.monospace {
+  font-family: monospace;
 }
 
 button {
@@ -77,6 +124,7 @@ button:focus-visible {
     color: black;
     background-color: #dedede;
   }
+  .card {background-color: #f8f8f8;}
   a:hover {
     color: #747bff;
   }

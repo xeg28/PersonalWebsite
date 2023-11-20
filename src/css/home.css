@@ -1,41 +1,37 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.card {
+#home-content {
     display: grid;
-    background: hsl(0 0% 100%/0.1);
     grid-template-columns: 1fr 2fr;
-    max-width: 75vw;
     column-gap: 1rem;
-    border-radius: 3vw;
-    margin: 1rem;
-    padding: 2em;
 }
 
 .pic-text {
-    display: none;
+    display:contents;
 }
 
+#name {
+    font-size: var(--fs-600);
+}
+#occ {
+    font-size: calc(var(--fs-600) - .5rem);
+}
 
 @media (max-width: 950px) {
-    .card {
-        background: hsl(0 0% 100%/0.1);
+    #home-content {
         grid-template-columns: 1fr;
         row-gap: 3rem;
-        max-width: 90vw;
-        padding: 1em;
     }
     .pic-text {
         display:contents;
     }
-    .name-occ {
-        display:none;
-    }
     #pic-name {
         display: inline-block;
+    }
+    #name {
+        font-size: var(--fs-xl);
+    }
+    #occ {
+        font-size: var(--fs-600);
     }
 }
 
@@ -54,7 +50,7 @@
     flex-direction: column;
     text-align: left;
     max-width: 250px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 
 .about-me {
@@ -105,26 +101,21 @@
     font-weight: 400;
 }
 
-.about-me-container {
+.about-me {
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    justify-content: center;
 }
 
-.monospace {
-    font-family: monospace;
-}
-
-
-#paragraph {
-    display: inline-block;
-    margin-top: 1rem;
-    font-size: var(--fs-400);
+.about-me-container *{
+    width: fit-content;
 }
 
 @media (prefers-color-scheme: light) { 
     #phone {filter: invert(0);}
     #email {filter: invert(0);}
     .picture-frame {background-color: #232323;}
-    .card {background-color: #dedede;}
-    .contact a {text-shadow: .5px .5px .5px black}
+    .contact a {text-shadow: .5px .5px .5px black;}
 }
 
