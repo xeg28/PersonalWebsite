@@ -33,6 +33,7 @@ function Navbar() {
     const navigate = useNavigate();
     const location = useLocation;
     var pathname = useLocation().pathname;
+    const url = "/PersonalWebsite"
     useEffect(() => {
         closeMenu();
     }, []);
@@ -42,10 +43,10 @@ function Navbar() {
         <nav className="navbar">
             <div className="nav-content">
                 <div className="btn-group" id="btn-group">
-                    <Link className={pathname == '/' ? 'active route' : 'route'} to="/">Home</Link>
-                    <Link className={pathname == '/education' ? 'active route' : 'route'} to="/education">Education</Link>
-                    <Link className={pathname == '/experience' ? 'active route' : 'route'} to="experience">Experience</Link>
-                    <Link className={pathname == '/projects' ? 'active route' : 'route'} to="projects">Projects</Link>
+                    <Link className={pathname == url ? 'active route' : 'route'} to={url}>Home</Link>
+                    <Link className={pathname == url +'/education' ? 'active route' : 'route'} to={url+"/education"}>Education</Link>
+                    <Link className={pathname == url + '/experience' ? 'active route' : 'route'} to={url + "/experience"}>Experience</Link>
+                    <Link className={pathname == url + '/projects' ? 'active route' : 'route'} to={url + "/projects"}>Projects</Link>
                     {/* <a className={pathname == '/' ? 'active route' : 'route'} onClick={() => navigate('/')}>Home</a>
                     <a className={pathname == '/education' ? 'active route' : 'route'} onClick={() => navigate('/education')}>Education</a>
                     <a className={pathname == '/experience' ? 'active route' : 'route'} onClick={() => navigate('/experience')}>Experience</a>
