@@ -1,10 +1,12 @@
 import React from 'react';
 import '../index.css';
 import '../css/home.css';
+import Transition from './Transition';
 
 function Home() {
   document.title = "Home";
   return (
+    <Transition>
     <div className="container">
       <div className="card">
         <div id="home-content">
@@ -13,7 +15,8 @@ function Home() {
               <span className="monospace" id="name">Emmanuel Gonzalez</span>
               <span className="monospace" id="occ">Computer Science Student</span>
             </div>
-            <div className="picture-frame"></div>
+              <img src="./headshot.png" alt="headshot" id="headshot"/>
+            
             <div className="contact-info">
               <h2 className='monospace' style={{margin: '0 auto'}}>Contact</h2>
               <div className="email">
@@ -39,6 +42,7 @@ function Home() {
         </div>
       </div>
     </div>
+    </Transition>
   );
 }
 

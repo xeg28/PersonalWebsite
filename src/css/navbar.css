@@ -1,3 +1,4 @@
+
 .social-group {
 	padding: 0.6em 1.5em;
 }
@@ -21,7 +22,7 @@
 	color: white;
 	background-color: #232323;
 	width: 100vw;
-	min-height: 2rem;
+	max-height: 3.5rem;
 	padding-top: 12px;
 	padding-bottom:12px;
 	margin: 0 auto;
@@ -145,5 +146,6 @@
 		height:0;
 	}
 	.nav-btn {display: inline-block;}
+
 
 }

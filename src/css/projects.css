@@ -1,0 +1,22 @@
+#projects-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+#projects-content * {
+    width: fit-content;
+}
+
+#snake-game {
+    text-align: left;
+    display:grid;
+    grid-template-columns: 1fr;
+}
+
+#features-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: .5rem;
+}

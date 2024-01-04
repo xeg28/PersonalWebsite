@@ -1,22 +1,29 @@
 import React from 'react';
+import {Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { AnimatePresence } from 'framer-motion';
+
 import Home from './components/Home';
+import Experience from './components/Experience';
+import Education from './components/Education'
 import Projects from './components/Projects';
-import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function App() {
-    const navigate = useNavigate();
+   const location = useLocation();
 
     return (
     <>
-        <div className="navbar">
-            <button onClick={() => navigate('/')}>Home</button>
-            <button onClick={() => navigate('/projects')}>Projects</button>
-        </div>
-        <Routes>
-            <Route path="/" element={ <Home/> } />
-            <Route path="/projects" element={ <Projects/> } />
-        </Routes>
-    </>);
+         <Navbar/>
+        <AnimatePresence mode="wait">
+            <Routes location = {location} key = {location.pathname}>
+                <Route index element={<Home/>}></Route>
+                <Route path="/education" element={ <Education/>} />
+                <Route path="/experience" element={ <Experience/> } />
+                <Route path="/projects" element={ <Projects/> } />
+            </Routes>
+        </AnimatePresence>
+    </>
+    );
  }
 
 export default App;

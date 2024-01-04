@@ -1,0 +1,16 @@
+#experience-content{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+}
+
+#experience-content * {
+    width: fit-content;
+}
+
+#reu {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+

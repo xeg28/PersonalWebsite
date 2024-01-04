@@ -1,10 +1,8 @@
 import {React, useEffect} from 'react';
-import Home from './Home';
-import Projects from './Projects';
-import Experience from './Experience';
-import Education from './Education'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import '../css/navbar.css'
+
+
 
 function navToggle() {
     const menuButton = document.getElementById('nav-btn');
@@ -30,8 +28,10 @@ function closeMenu() {
     }
 }
 
+
 function Navbar() {
     const navigate = useNavigate();
+    const location = useLocation;
     var pathname = useLocation().pathname;
     useEffect(() => {
         closeMenu();
@@ -42,24 +42,25 @@ function Navbar() {
         <nav className="navbar">
             <div className="nav-content">
                 <div className="btn-group" id="btn-group">
-                    <a className={pathname == '/' ? 'active route' : 'route'} onClick={() => navigate('/')}>Home</a>
+                    <Link className={pathname == '/' ? 'active route' : 'route'} to="/">Home</Link>
+                    <Link className={pathname == '/education' ? 'active route' : 'route'} to="/education">Education</Link>
+                    <Link className={pathname == '/experience' ? 'active route' : 'route'} to="experience">Experience</Link>
+                    <Link className={pathname == '/projects' ? 'active route' : 'route'} to="projects">Projects</Link>
+                    {/* <a className={pathname == '/' ? 'active route' : 'route'} onClick={() => navigate('/')}>Home</a>
                     <a className={pathname == '/education' ? 'active route' : 'route'} onClick={() => navigate('/education')}>Education</a>
                     <a className={pathname == '/experience' ? 'active route' : 'route'} onClick={() => navigate('/experience')}>Experience</a>
-                    <a className={pathname == '/projects' ? 'active route' : 'route'} onClick={() => navigate('/projects')}>Projects</a>
+                    <a className={pathname == '/projects' ? 'active route' : 'route'} onClick={() => navigate('/projects')}>Projects</a> */}
                 </div>
                 <div className="social-group">
-                    <a href="https://github.com/xeg28"><span className="github icon"></span></a>
-                    <a href="https://www.linkedin.com/in/xeg28/"><span className='linkedin icon'></span></a>
+                    <Link className="github icon" to='https://github.com/xeg28'></Link>
+                    <Link className="linkedin icon" to='https://www.linkedin.com/in/xeg28/'></Link>
+                    {/* <a href="https://github.com/xeg28"><span className="github icon"></span></a>
+                    <a href="https://www.linkedin.com/in/xeg28/"><span className='linkedin icon'></span></a> */}
                 </div>
             </div>
             <a className="nav-btn" style={{height: '30px'}} id='nav-btn' onClick={() => navToggle()}><span className="nav-btn-icon icon"></span></a>
         </nav>
-        <Routes>
-            <Route path="/" element={ <Home/> } />
-            <Route path="/education" element={ <Education/>} />
-            <Route path="/experience" element={ <Experience/> } />
-            <Route path="/projects" element={ <Projects/> } />
-        </Routes>
+       
     </>);
  }
 
