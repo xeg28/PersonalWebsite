@@ -12,11 +12,12 @@ function changeText() {
 
 function changeSchoolLabel() {
   var mediaQuery = window.matchMedia('(max-width: 900px)');
-    if(mediaQuery.matches) {
-      document.getElementById('college-label').innerHTML = "Cal State LA (In Progress)"
+  const collegeLabel = document.getElementById('college-label');
+    if(mediaQuery.matches && collegeLabel) {
+     collegeLabel.innerHTML = "Cal State LA (In Progress)";
     }
-    else {
-        document.getElementById('college-label').innerHTML = "California State University Los Angeles (In Progress)"
+    else if(collegeLabel){
+        document.getElementById('college-label').innerHTML = "California State University Los Angeles (In Progress)";
     }
 }
 

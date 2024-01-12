@@ -51,5 +51,6 @@
     }
     .school-label{
         border-bottom: 3px solid #5bb9fc;
+        font-size: calc(var(--fs-600) - 2px);
     }
 }

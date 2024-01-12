@@ -8,15 +8,46 @@
     width: fit-content;
 }
 
-#snake-game {
+.project {
     text-align: left;
     display:grid;
     grid-template-columns: 1fr;
 }
 
-#features-container {
+.img-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100% !important;
+}
+
+.project-image {
+    max-width: 35vw;
+    height: auto;
+    border-radius: 1vw;
+}
+
+.grid-container {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: .5rem;
+}
+
+@media(max-width:950px) {
+    .project-image {
+        max-width: 42.5vw;
+        border-radius: 2vw;
+    }
+}
+
+@media(max-width:750px) {
+    .img-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .project-image {
+        max-width: 85vw;
+    }
 }

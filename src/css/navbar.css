@@ -1,13 +1,19 @@
 
 .social-group {
 	padding: 0.6em 1.5em;
+	margin-right: 1rem;
 }
+
 
 .btn-group {
 	padding: 0.6em 1.5em;
+	margin-left: 1rem;
 }
 
-.github {  background-image: url('../assets/github.svg');}
+.github {  
+	background-image: url('../assets/github.svg');
+	margin-right: 2rem;
+}
 .linkedin { background-image: url('../assets/linkedin.png');}
 
 .icon {
@@ -17,14 +23,40 @@
 	background-size: 30px 30px;
 }
 
+.navbar li {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+	margin-right: 2rem;
+}
+
+/* .navbar li:last-child {
+	margin-right: 0;
+} */
+
+.navbar li:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+
+.navbar li:hover:after {
+	width: 100%;
+	background: #5bb9fc;
+}
+
 .navbar {
 	overflow: hidden;
 	color: white;
 	background-color: #232323;
 	width: 100vw;
-	max-height: 3.5rem;
+	max-height: 3rem;
 	padding-top: 12px;
-	padding-bottom:12px;
+	padding-bottom:10px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -36,10 +68,10 @@
 
 .navbar a {
 	text-align: center;
-	margin: 1rem;
 	color: white;
 	font-size: 20px;
 	font-weight: 300;
+	transition: color .5s ease;
 }
 
 .navbar a.active {
@@ -52,8 +84,8 @@
 	color: rgb(200,200,200);
 	border-color:#1b1b1b;
 	cursor: pointer;
-	border-bottom: 3px solid #5bb9fc;
-	padding-bottom: 3px;
+	/* border-bottom: 3px solid #5bb9fc;
+	padding-bottom: 3px; */
 }
 
 .navbar button:focus, button:focus-visible {
@@ -64,11 +96,13 @@
 	display: none;
 	padding-right: 3px;
 	position: sticky;
+	
 }
 
 .nav-btn:hover {
 	cursor: pointer;
 }
+
 
 .nav-content {
 	position: relative;
@@ -82,6 +116,34 @@
 	overflow: hidden;
 }
 
+
+.nav-btn-x {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+.nav-btn-x:after {
+    background: white;
+    content: '';
+    height: 28px;
+    border-left: 3px solid white;
+    position: absolute;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    /* left: 28px; */
+}
+
+.nav-btn-x:before {
+    background: white;
+    border-radius: 10px;
+    content: '';
+    height: 28px;
+    border-left: 3px solid white;
+    position: absolute;
+    transform: rotate(-45deg);
+    /* left: 28px; */
+}
 
 .nav-btn-icon {background-image: url(../assets/menu.png);}
 
@@ -102,6 +164,8 @@
 @media (prefers-color-scheme: dark) {
 	.navbar {background-color: #232323;}
 }
+
+
 
 @media (max-width: 700px) {
 	.navbar{
@@ -137,7 +201,13 @@
 	}
 
 	.btn-group {
-		display:grid;
+		display: grid;
+		margin: 0 auto;
+	}
+
+	.btn-group li {
+		margin: 0 auto;
+		margin-top: 1rem;
 	}
 
 	.nav-content {
@@ -145,7 +215,35 @@
 		width:0;
 		height:0;
 	}
-	.nav-btn {display: inline-block;}
+	.nav-btn {
+		display: inline-block;
+		margin: 1.5vw;
+	}
+
+	@media (prefers-color-scheme: light) {
+
+		.menu-open .nav-content {
+			background-color: #dedede;
+		}
+	
+		.menu-open .nav-content a{
+			color: black;
+		}
+		.menu-open .nav-content  a.active{
+			color: #5bb9fc;
+			text-shadow: .2px .2px .2px black;
+		}
+	
+		.nav-btn-x:after {
+			background: #454545;
+			border-left: 3px solid #454545;
+		 }
+	
+		 .nav-btn-x:before {
+			background: #454545;
+			border-left: 3px solid #454545;
+		 }
+	}
 
 
 }
