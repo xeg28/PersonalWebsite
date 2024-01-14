@@ -169,13 +169,13 @@
 
 @media (max-width: 700px) {
 	.navbar{
-		width: 100vw;
+		width: 100%;
 		height:auto;
 		justify-content:right;
 		padding-top:0px;
 		padding-bottom:0px;
 		align-items:start;
-		position:relative;
+		position:sticky;
 		display:flex;
 	}
 
@@ -186,7 +186,7 @@
         display:grid;
 		position:fixed;
 		justify-content: center;
-		height: 100dvh;
+		height: calc(var(--vh, 1vh) * 100);
 		width:100%;
 		background-color: #232323;
 		opacity: 95%;
@@ -202,6 +202,9 @@
 
 	.btn-group {
 		display: grid;
+		margin: 0 auto;
+	}
+	.social-group {
 		margin: 0 auto;
 	}
 

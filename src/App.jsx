@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import {Routes, Route, useLocation, Navigate, HashRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { AnimatePresence } from 'framer-motion';
@@ -14,14 +14,20 @@ function App() {
     return (      
         <>
             <Navbar/>
-            <AnimatePresence mode="wait">
-                <Routes location = {location} key = {location.pathname}>
+            {/* <AnimatePresence mode="wait"> */}
+                {/* <Routes location = {location} key = {location.pathname}>
                     <Route path={"/"} element={<Home/>}></Route>
                     <Route path={"/education"} element={ <Education/>} />
                     <Route path={"/experience"} element={ <Experience/> } />
                     <Route path={"/projects"} element={ <Projects/> } />
-                </Routes>
-            </AnimatePresence>
+                </Routes> */}
+            <div className="container">
+                <Home/>
+                <Education/>
+                <Experience/>
+                <Projects/>
+            </div>
+            {/* </AnimatePresence> */}
         </>
     );
  }

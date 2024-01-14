@@ -1,8 +1,33 @@
-import {React, useEffect} from 'react';
-import { Link, useLocation, useNavigate} from 'react-router-dom';
+import {React, useEffect, useState} from 'react';
+import {Link} from 'react-scroll';
 import '../css/navbar.css'
 
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+function setActiveCard(cardActive) {
+    const routes = document.querySelectorAll('.route');
+    routes.forEach((route) => {
+        if(route.classList.contains('active')) route.classList.remove('active');
+    });
+    const activeLink = document.getElementById('lk-' + cardActive);
+    activeLink.classList.add('active');
+}
+// Dynamically changes the vertical height. This is particularly useful
+// when on mobile because the bottom menu disappears and reappears 
+// when scrolling
+function setVhVariable() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
 
 
 function navToggle() {
@@ -20,11 +45,10 @@ function closeMenu() {
     const navbar = document.querySelector('.navbar');
     const body = document.querySelector('body');
     var elements = document.getElementsByClassName('route');
-
-
    
-
     window.addEventListener('resize', function() {
+
+        setVhVariable();
         
         if(!mediaQuery.matches && navbar.classList.contains('menu-open')) {
             body.classList.remove('no-scroll');
@@ -34,10 +58,12 @@ function closeMenu() {
             body.classList.add('no-scroll');
             this.window.scrollTo(0,0);
         }
+
     });
 
     for(let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener('click', function(event) {
+        elements[i].addEventListener('click', function(event) { 
+            elements[i].classList.add('active');
             if(navbar.classList.contains('menu-open')) {
                 navbar.classList.remove('menu-open');
                 document.getElementById("nav-btn-menu").classList.toggle('hide');
@@ -51,12 +77,12 @@ function closeMenu() {
 
 
 function Navbar() {
-    const navigate = useNavigate();
-    const location = useLocation;
-    var pathname = useLocation().pathname;
-    const url = "/"
+    const navbarHeight = 112;
     useEffect(() => {
         closeMenu();
+        const cards = document.querySelectorAll('.card');
+        console.log(cards);
+        cards.forEach((el) => observer.observe(el));
     }, []);
 
     return (
@@ -64,20 +90,50 @@ function Navbar() {
         <nav className="navbar">
             <div className="nav-content">
                 <div className="btn-group" id="btn-group">
-                    <li><Link className={pathname == url ? 'active route' : 'route'} to={url}>Home</Link></li>
-                    <li><Link className={pathname.startsWith('/education') ? 'active route' : 'route'} to={"/education"}>Education</Link></li>
-                    <li><Link className={pathname.startsWith('/experience') ? 'active route' : 'route'} to={"/experience"}>Experience</Link></li>
-                    <li><Link className={pathname.startsWith('/projects') ? 'active route' : 'route'} to={"/projects"}>Projects</Link></li>
-                    {/* <a className={pathname == '/' ? 'active route' : 'route'} onClick={() => navigate('/')}>Home</a>
-                    <a className={pathname == '/education' ? 'active route' : 'route'} onClick={() => navigate('/education')}>Education</a>
-                    <a className={pathname == '/experience' ? 'active route' : 'route'} onClick={() => navigate('/experience')}>Experience</a>
-                    <a className={pathname == '/projects' ? 'active route' : 'route'} onClick={() => navigate('/projects')}>Projects</a> */}
+                    <li><Link 
+                        className={'route'}
+                        id="lk-home"
+                        to="home"
+                        spy={true}
+                        smooth={true} 
+                        offset={-navbarHeight}
+                        duration={500}
+                        activeClass="active"
+                        >Home</Link></li>
+                    <li><Link 
+                    className={ 'route'} 
+                        id="lk-education"
+                        to={"education"}
+                        spy={true}
+                        smooth={true} 
+                        offset={-navbarHeight}
+                        duration={500}
+                        activeClass="active"
+                        >Education</Link></li>
+                    <li><Link 
+                        className={'route'} 
+                        id="lk-experience"
+                        to="experience"
+                        spy={true}
+                        smooth={true}
+                        offset={-navbarHeight}
+                        duration={500}
+                        activeClass="active"
+                        >Experience</Link></li>
+                    <li>
+                        <Link className={ 'route'} 
+                        id="lk-projects"
+                        to="projects"
+                        spy={true}
+                        smooth={true}
+                        offset={-navbarHeight}
+                        duration={500}
+                        activeClass="active"
+                        >Projects</Link></li>
                 </div>
                 <div className="social-group">
                     <Link className="github icon" to='https://github.com/xeg28'></Link>
                     <Link className="linkedin icon" to='https://www.linkedin.com/in/xeg28/'></Link>
-                    {/* <a href="https://github.com/xeg28"><span className="github icon"></span></a>
-                    <a href="https://www.linkedin.com/in/xeg28/"><span className='linkedin icon'></span></a> */}
                 </div>
             </div>
             <a className="nav-btn hide" style={{height: '30px'}} id='nav-btn-x' onClick={() => navToggle()}><span className="nav-btn-x icon"></span></a> 
