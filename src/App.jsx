@@ -1,5 +1,4 @@
 import {React, useEffect} from 'react';
-import {Routes, Route, useLocation, Navigate, HashRouter as Router} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { AnimatePresence } from 'framer-motion';
 
@@ -9,8 +8,7 @@ import Education from './components/Education'
 import Projects from './components/Projects';
 
 function App() {
-    const location = useLocation();
-    const url = "/PersonalWebsite"
+    document.title = "Emmanuel Gonzalez";
     return (      
         <>
             <Navbar/>

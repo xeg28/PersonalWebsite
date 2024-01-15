@@ -99,6 +99,7 @@ body {
   padding: 2em;
   margin-bottom: 7rem;
   opacity: 0;
+  filter: blur(5px);
   transition: all .8s;
 
 }
@@ -114,6 +115,7 @@ body {
 .show {
   transform: translateX(0) !important;
   opacity: 1;
+  filter: blur(0);
 }
 
 

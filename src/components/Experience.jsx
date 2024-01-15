@@ -4,7 +4,6 @@ import '../css/experience.css';
 import Transition from './Transition';
 
 function Experience() {
-  document.title = "Experience";
   return (
     <div className="card" id="experience">
       <div id="experience-content">

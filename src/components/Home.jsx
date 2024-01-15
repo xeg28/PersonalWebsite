@@ -6,7 +6,6 @@
   import headshot from '../assets/headshot.png';
 
   function Home() {
-    document.title = "Home";
 
     return (
       <div className="card" id="home">

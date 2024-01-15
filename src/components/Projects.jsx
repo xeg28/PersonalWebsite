@@ -10,7 +10,6 @@ import TypingTestResults from '../assets/TypingTestResults.png';
 
 
 function Projects() {
-  document.title = "Projects";
   return (
     <div className="card" id="projects">
       <div id="projects-content">

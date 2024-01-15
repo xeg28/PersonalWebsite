@@ -22,7 +22,6 @@ function changeSchoolLabel() {
 }
 
 function Education() {
-  document.title = "Education";
   useEffect(() => {
     changeText();
   }, []);
