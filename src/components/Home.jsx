@@ -47,15 +47,20 @@
                 I spent a lot of time on the computer playing games and I would often encounter issues with software. 
                 Troubleshooting these issues made me develop an interest in not only problem solving, but also developed 
                 a curiosity about the inner workings of software.
-                <br/><br/>
-                I've had the opportunity to participate in a CAHSI LREU program where I gained research experience. I helped 
-                with a research project that involved using machine learning to detect emotions and sentiments in tweets related to 
-                COVID-19. While my primary focus is not machine learning, I improved my skills in data analysis and research methodology. 
-                <br/><br/>
-                My current goal is to obtain an internship in software development so I can gain professional experience, learn new technologies,
-                and improve my ability to work in a team.
-
               </span>
+                {/* <br/><br/> */}
+                <span className="paragraph">
+                  I've had the opportunity to participate in a CAHSI LREU program where I gained research experience. I helped 
+                  with a research project that involved using machine learning to detect emotions and sentiments in tweets related to 
+                  COVID-19. While my primary focus is not machine learning, I improved my skills in data analysis and research methodology. 
+                </span>
+
+                {/* <br/><br/> */}
+                <span className="paragraph">
+                  My current goal is to obtain an internship in software development so I can gain professional experience, learn new technologies,
+                  and improve my ability to work in a team.
+                </span>
+              {/* </span> */}
           </div>
         </div>
       </div>

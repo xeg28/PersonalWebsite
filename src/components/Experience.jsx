@@ -7,7 +7,7 @@ function Experience() {
   return (
     <div className="card" id="experience">
       <div id="experience-content">
-        <div id="reu">
+        <div className="flex-container" id="reu">
           <span className="label-theme">CAHSI Local REU Program</span>
           <div className="paragraph" id="reu-tasks">
             <li>I collaberated with other students on a research project involving analysis of covid related tweets

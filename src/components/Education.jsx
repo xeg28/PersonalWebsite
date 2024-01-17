@@ -28,7 +28,7 @@ function Education() {
   return (
     <div className="card" id="education">
       <div id="education-content">
-        <div id="college">
+        <div className="flex-container" id="college">
           <span className="label-theme school-label" id="college-label">
             California State University Los Angeles (In Progress)
           </span>
@@ -61,7 +61,7 @@ function Education() {
           </div>
         </div>
         <hr />
-        <div id="high-school">
+        <div className="flex-container" id="high-school">
           <span className="label-theme school-label">Bell Senior High</span>
           <span className="paragraph">
               <strong>

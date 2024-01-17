@@ -148,7 +148,10 @@
 .nav-btn-icon {background-image: url(../assets/menu.png);}
 
 @media (prefers-color-scheme: light) {
-	.navbar {background-color: #dedede;}
+	.navbar {
+		background-color: #dedede;
+		color:black;
+	}
 	.nav-btn-icon {filter: invert(.75);}
 	.github {filter: invert(.75);}
 	.linkedin {filter: invert(.75);}
@@ -169,7 +172,7 @@
 
 @media (max-width: 700px) {
 	.navbar{
-		width: 100%;
+		width: 100vw;
 		height:auto;
 		justify-content:right;
 		padding-top:0px;
@@ -192,13 +195,6 @@
 		opacity: 95%;
 		transition: all 0.5s;
     }
-
-	#nav-name {
-		display: inline;
-		position: absolute; left: 50%; transform: translateX(-50%);
-		font-size: 19.5px;
-		font-weight: 400;
-	}
 
 	.btn-group {
 		display: grid;

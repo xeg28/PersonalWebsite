@@ -13,16 +13,27 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-function setActiveCard(cardActive) {
-    const routes = document.querySelectorAll('.route');
-    routes.forEach((route) => {
-        if(route.classList.contains('active')) route.classList.remove('active');
+function activateLinks() {
+    let top = window.scrollY;
+    let links = document.querySelectorAll('.route');
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        let offset = card.offsetTop-120;
+        let height = card.offsetHeight;
+        let id = card.id;
+    
+        if(top >= offset && top < offset + height) {
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('lk-' + id).classList.add('active');
+        }
     });
-    const activeLink = document.getElementById('lk-' + cardActive);
-    activeLink.classList.add('active');
-}
+ 
+} 
+
 // Dynamically changes the vertical height. This is particularly useful
-// when on mobile because the bottom menu disappears and reappears 
+// when on mobile because the menu disappears and reappears 
 // when scrolling
 function setVhVariable() {
     let vh = window.innerHeight * 0.01;
@@ -63,7 +74,6 @@ function closeMenu() {
 
     for(let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', function(event) { 
-            elements[i].classList.add('active');
             if(navbar.classList.contains('menu-open')) {
                 navbar.classList.remove('menu-open');
                 document.getElementById("nav-btn-menu").classList.toggle('hide');
@@ -77,12 +87,13 @@ function closeMenu() {
 
 
 function Navbar() {
-    const navbarHeight = 112;
+    let offset =  85;
     useEffect(() => {
         closeMenu();
         const cards = document.querySelectorAll('.card');
-        console.log(cards);
+        // console.log(cards);
         cards.forEach((el) => observer.observe(el));
+        window.addEventListener('scroll', activateLinks);
     }, []);
 
     return (
@@ -91,44 +102,40 @@ function Navbar() {
             <div className="nav-content">
                 <div className="btn-group" id="btn-group">
                     <li><Link 
-                        className={'route'}
+                        className={'route active'}
                         id="lk-home"
                         to="home"
-                        spy={true}
                         smooth={true} 
-                        offset={-navbarHeight}
+                        offset={-offset}
                         duration={500}
-                        activeClass="active"
+                        activeClass=''
                         >Home</Link></li>
                     <li><Link 
                     className={ 'route'} 
                         id="lk-education"
                         to={"education"}
-                        spy={true}
                         smooth={true} 
-                        offset={-navbarHeight}
+                        offset={-offset}
                         duration={500}
-                        activeClass="active"
+                        activeClass=''
                         >Education</Link></li>
                     <li><Link 
                         className={'route'} 
                         id="lk-experience"
                         to="experience"
-                        spy={true}
                         smooth={true}
-                        offset={-navbarHeight}
+                        offset={-offset}
                         duration={500}
-                        activeClass="active"
+                        activeClass=''
                         >Experience</Link></li>
                     <li>
                         <Link className={ 'route'} 
                         id="lk-projects"
                         to="projects"
-                        spy={true}
                         smooth={true}
-                        offset={-navbarHeight}
+                        offset={-offset}
                         duration={500}
-                        activeClass="active"
+                        activeClass=''
                         >Projects</Link></li>
                 </div>
                 <div className="social-group">

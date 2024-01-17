@@ -2,19 +2,42 @@ import {React} from 'react';
 import '../index.css';
 import '../css/projects.css';
 
-import Transition from './Transition';
 import SnakeMenu from '../assets/SnakeGameMenu.png';
 import SnakeGameplay from '../assets/SnakeGameplay.png';
 import TypingTestTitle from '../assets/TypingTestTitle.png';
 import TypingTestResults from '../assets/TypingTestResults.png';
 
 
+function imageClicked(id) {
+  const mediaQuery = window.matchMedia('(max-width: 750px)');
+  if(mediaQuery.matches) return;
+
+  const element = document.getElementById(id);
+  const parent = element.parentElement;
+
+  if(element.classList.contains('image-right')) {
+    element.classList.toggle('focused-right');
+    let sibling = parent.firstChild;
+    if(!element.classList.contains("top-image")) element.classList.add('top-image');
+    if(sibling.classList.contains("top-image")) sibling.classList.remove('top-image');
+  }
+
+  if(element.classList.contains('image-left')) {
+    element.classList.toggle('focused-left');
+    let sibling = parent.lastChild;
+    if(!element.classList.contains("top-image")) element.classList.add('top-image');
+    if(sibling.classList.contains("top-image")) sibling.classList.remove('top-image');
+  }
+
+  parent.classList.toggle('focused-image');
+}
+
 function Projects() {
   return (
     <div className="card" id="projects">
       <div id="projects-content">
 
-        <div className="project" id="snake-game">
+        <div className="flex-container" id="snake-game">
           <span className="label-theme">Snake Game</span>
           <span className="paragraph">
             I recreated the Snake game using JavaScript, HTML, and CSS. I decided to 
@@ -42,8 +65,15 @@ function Projects() {
           </div>
 
           <div className="img-container">
-            <img className="project-image" src={SnakeMenu} alt="Snake Game Menu" loading="lazy"/>
-            <img className="project-image" src={SnakeGameplay} alt="Snake Gameplay" loading="lazy"/>
+            <img 
+              className="project-image image-left" 
+              id="snake-menu" src={SnakeMenu} 
+              alt="Snake Game Menu" loading="lazy" onClick={imageClicked.bind(null, 'snake-menu')}/>
+
+            <img 
+              className="project-image image-right"
+              id="snake-gameplay" src={SnakeGameplay}
+              alt="Snake Gameplay" loading="lazy" onClick={imageClicked.bind(null, 'snake-gameplay')}/>
           </div>
 
           <div className="grid-container">
@@ -54,7 +84,7 @@ function Projects() {
         
         <hr/>
 
-        <div className="project" id="typing-speed-test">
+        <div className="flex-container" id="typing-speed-test">
           <span className='label-theme'>Typing Speed Test</span>
           <span className="paragraph">
             I created a typing speed test using JavaFX and CSS. I created this application
@@ -89,15 +119,21 @@ function Projects() {
           </div>
 
           <div className="img-container">
-            <img src={TypingTestTitle} alt="Typingtest Main Page" className="project-image" loading="lazy"/>
-            <img src={TypingTestResults} alt="Typingtest Results Page" className="project-image" loading="lazy"/>
+            <img 
+              src={TypingTestTitle} alt="Typingtest Main Page"
+              id="typing-main" onClick={imageClicked.bind(null, 'typing-main')}
+              className="project-image image-left" loading="lazy"/>
+            <img 
+              src={TypingTestResults} alt="Typingtest Results Page" 
+              id="typing-results" onClick={imageClicked.bind(null, 'typing-results')}
+              className="project-image image-right" loading="lazy"/>
           </div>
 
           <div className="grid-container">
             <span className="monospace fs-500 fw-600">How to install</span>
             <span className="monospace fs-400">
-              You will need to install <a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Java 17</a>.
-              Then you can download and run the <a href="https://github.com/xeg28/Typingtest/raw/main/out/artifacts/Executable/Executable.jar">file</a>.
+              You will need to install <a className="monospace fs-400" href="https://www.oracle.com/java/technologies/downloads/">Java 17</a>.
+              You can check out the project on <a className="monospace fs-400" href="https://github.com/xeg28/Typingtest">GitHub</a>.
             </span>
           </div>
 

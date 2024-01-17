@@ -4,28 +4,69 @@
     row-gap: 1rem;
 }
 
-#projects-content * {
-    width: fit-content;
+#projects li {
+    text-indent: -1.3em;
+    padding-left: 2em;
 }
 
-.project {
-    text-align: left;
-    display:grid;
-    grid-template-columns: 1fr;
-}
 
 .img-container {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
     width: 100% !important;
+    height: calc(36vw * .50);
+    transition: height 0.5s;
 }
+
+.img-container.focused-image {
+    position: relative;
+    height: calc(75vw * .49);
+}
+
 
 .project-image {
     max-width: 35vw;
     height: auto;
     border-radius: 1vw !important;
+    transition: max-width .5s;
+}
+
+
+.project-image:hover {
+    max-width: 36vw;
+    cursor: pointer;
+}
+
+.image-left {
+    position: absolute;
+    left: 0;
+}
+
+.image-right {
+    position: absolute;
+    right:0;
+}
+
+.top-image {
+    z-index: 1;
+}
+
+.project-image.focused-left{
+    z-index: 1;
+    max-width: 100%;
+    position: absolute;
+    left:0;
+
+}
+
+.project-image.focused-right {
+    z-index: 1;
+    max-width: 100%;
+    position: absolute;
+    right:0;
 }
 
 .grid-container {
@@ -36,18 +77,76 @@
 }
 
 @media(max-width:950px) {
+    .img-container {
+        height: calc(42.5vw * .50);
+    }
     .project-image {
         max-width: 42.5vw;
         border-radius: 2vw;
+    }
+    .project-image:hover {
+        max-width: 42.5vw;
+    }
+
+    .img-container.focused-image {
+        position: relative;
+        height: calc(90vw * .47);
+    }
+    .project-image.focused-left{
+        z-index: 1;
+        max-width: 100%;
+        position: absolute;
+        left:0;
+    
+    }
+    
+    .project-image.focused-right {
+        z-index: 1;
+        max-width: 100%;
+        position: absolute;
+        right:0;
     }
 }
 
 @media(max-width:750px) {
     .img-container {
+        position:initial;
         flex-direction: column;
+        height: fit-content !important; 
         gap: 2rem;
     }
+    .img-container.focused-image {
+        position: initial;
+    }
+    
     .project-image {
-        max-width: 85vw;
+        max-width: 100%;
+    }
+    .project-image:hover {
+        max-width: 100%;
+    }
+    .image-left {
+        position: initial;
+        left: auto;
+    }
+    
+    .image-right {
+        position: initial;
+        right:auto;
+    }
+
+    .project-image.focused-left{
+        z-index: 0;
+        max-width: 100%;
+        position: initial;
+        left:auto;
+    
+    }
+    
+    .project-image.focused-right {
+        z-index: 0;
+        max-width: 100%;
+        position: initial;
+        right:auto;
     }
 }

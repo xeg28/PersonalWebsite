@@ -5,19 +5,7 @@
 }
 
 #education-content * {
-    width: fit-content;
-}
-
-#high-school {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-#college {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 1fr;
+    /* width: fit-content; */
 }
 
 #courses-container {

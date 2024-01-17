@@ -4,13 +4,10 @@
     row-gap: 3rem;
 }
 
-#experience-content * {
-    width: fit-content;
+#experience li {
+    text-indent: -1.3em;
+    padding-left: 1.5em;
 }
 
-#reu {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 1fr;
-}
+
 

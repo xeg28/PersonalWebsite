@@ -2,7 +2,7 @@
 #home-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    column-gap: 1rem;
+    column-gap: 2rem;
 }
 
 .pic-text {
@@ -39,6 +39,10 @@
     #pic-name {
         display: inline-block;
     }
+    #headshot {
+        height:260px;
+        width: 220px;
+    }
     #name {
         font-size: calc(var(--fs-xl) - 1px);
     }
@@ -46,6 +50,7 @@
         font-size: calc(var(--fs-600) - 1px);
     }
 }
+
 
 .contact-info {
     display:flex;
@@ -56,15 +61,14 @@
 }
 
 .about-me {
-    display:grid;
     margin: 0 auto;
     align-items: start;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
 }
 
-.contact a{
-    color:#5bb9fc;
-    display:inline-block;
-}
 
 #email {
     background-image: url(../assets/email.png);
@@ -94,7 +98,8 @@
 }
 
 .contact {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     place-items: center;
 }
 
@@ -103,12 +108,6 @@
     font-weight: 400;
 }
 
-.about-me {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: center;
-}
 
 .about-me-container *{
     width: fit-content;

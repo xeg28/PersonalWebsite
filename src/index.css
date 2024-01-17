@@ -46,7 +46,6 @@
   justify-content: center;
   flex-direction: column;
   overflow-x:hidden;
-  /* height: calc(100vh - 81.6px); */
 }
 
 body::-webkit-scrollbar {
@@ -81,11 +80,11 @@ a:hover {
   color: #1c7bbe;
 }
 
+
 body {
   margin: 0;
   display: flex;
-  place-items: top;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
   overflow: hidden;
   overflow-y: auto;
@@ -97,20 +96,26 @@ body {
   height: fit-content;
   border-radius: 2vw;
   padding: 2em;
-  margin-bottom: 7rem;
+  margin: 3.5rem 0;
   opacity: 0;
   filter: blur(5px);
-  transition: all .8s;
-
+  transition: transform .8s, opacity .8s;
 }
+.card:first-child {
+  margin-top: 0px;
+}
+.card:last-child {
+  margin-bottom: 7rem;
+}
+
 .card:nth-child(odd) {
   transform: translateX(-80%);
-
 }
 
 .card:nth-child(even) {
   transform: translateX(80%);
 }
+
 
 .show {
   transform: translateX(0) !important;
@@ -123,6 +128,14 @@ body {
   display:none;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+}
+
+
 @media (prefers-reduced-motion) {
   .card {
     transition: none;
@@ -131,15 +144,22 @@ body {
 
 @media (max-width: 950px) {
   .card {
-      width: 90vw;
+      width: 85vw;
       padding: 1.5em;
-      margin-bottom: 4.5rem;
+      margin: 2.25rem 0;
+  }
+
+  .card:first-child {
+    margin-top: 0px;
+  }
+  .card:last-child {
+    margin-bottom: 4.5rem;
   }
   
   .container {
     height:auto;
-    margin: 1rem;
   }
+
 }
 
 @media (max-width: 700px) {
@@ -159,6 +179,7 @@ body {
   font-family: monospace;
   margin-top: 1rem;
   font-size: var(--fs-400);
+  text-wrap: pretty;
 }
 
 h1 {
