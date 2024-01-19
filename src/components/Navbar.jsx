@@ -1,5 +1,6 @@
 import {React, useEffect, useState} from 'react';
 import {Link} from 'react-scroll';
+import navIconDark from '../assets/logo-dark.png';
 import '../css/navbar.css'
 
 
@@ -52,7 +53,7 @@ function navToggle() {
 }
 
 function closeMenu() {
-    const mediaQuery = window.matchMedia('(max-width: 700px)');
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
     const navbar = document.querySelector('.navbar');
     const body = document.querySelector('body');
     var elements = document.getElementsByClassName('route');
@@ -87,35 +88,65 @@ function closeMenu() {
 
 
 function Navbar() {
-    let offset =  85;
+
+    const [navOffset, setNavOffset] = useState(70);
+    
     useEffect(() => {
+        const updateOffset = (newOffset) => {
+            if(window.innerWidth <= 700) {
+                setNavOffset(60);
+            } else {
+                setNavOffset(75);
+            }
+        };
         closeMenu();
+        updateOffset();
         const cards = document.querySelectorAll('.card');
-        // console.log(cards);
         cards.forEach((el) => observer.observe(el));
         window.addEventListener('scroll', activateLinks);
+
+        window.addEventListener('resize', updateOffset);
+
+        return () => {
+            window.removeEventListener('resize', updateOffset);
+        };
     }, []);
 
     return (
     <>
         <nav className="navbar">
+            <Link
+                to="home"
+                smooth={true} 
+                offset={-navOffset}
+                duration={500}
+                className="nav-icon"
+                ><span alt="nav-icon" className="logo"></span></Link>
+             
             <div className="nav-content">
+                <Link
+                to="home"
+                smooth={true} 
+                offset={-navOffset}
+                duration={500}
+                className="nav-icon"
+                ><span alt="nav-icon" className="logo"></span></Link>
                 <div className="btn-group" id="btn-group">
                     <li><Link 
                         className={'route active'}
                         id="lk-home"
                         to="home"
                         smooth={true} 
-                        offset={-offset}
+                        offset={-navOffset}
                         duration={500}
                         activeClass=''
-                        >Home</Link></li>
+                        >About</Link></li>
                     <li><Link 
                     className={ 'route'} 
                         id="lk-education"
                         to={"education"}
                         smooth={true} 
-                        offset={-offset}
+                        offset={-navOffset}
                         duration={500}
                         activeClass=''
                         >Education</Link></li>
@@ -124,7 +155,7 @@ function Navbar() {
                         id="lk-experience"
                         to="experience"
                         smooth={true}
-                        offset={-offset}
+                        offset={-navOffset}
                         duration={500}
                         activeClass=''
                         >Experience</Link></li>
@@ -133,7 +164,7 @@ function Navbar() {
                         id="lk-projects"
                         to="projects"
                         smooth={true}
-                        offset={-offset}
+                        offset={-navOffset}
                         duration={500}
                         activeClass=''
                         >Projects</Link></li>
@@ -143,8 +174,8 @@ function Navbar() {
                     <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/'></a>
                 </div>
             </div>
-            <a className="nav-btn hide" style={{height: '30px'}} id='nav-btn-x' onClick={() => navToggle()}><span className="nav-btn-x icon"></span></a> 
-            <a className="nav-btn" style={{height: '30px'}} id='nav-btn-menu' onClick={() => navToggle()}><span className="nav-btn-icon icon"></span></a> 
+            <a className="nav-btn" style={{height: '30px'}} id='nav-btn-menu' onClick={() => navToggle()}><span className="nav-btn-icon icon"></span></a>
+            <a className="nav-btn hide" style={{height: '30px'}} id='nav-btn-x' onClick={() => navToggle()}><span className="nav-btn-x icon"></span></a>
         </nav>
        
     </>);

@@ -81,11 +81,11 @@
         height: calc(42.5vw * .50);
     }
     .project-image {
-        max-width: 42.5vw;
+        max-width: 40vw;
         border-radius: 2vw;
     }
     .project-image:hover {
-        max-width: 42.5vw;
+        max-width: 41vw;
     }
 
     .img-container.focused-image {

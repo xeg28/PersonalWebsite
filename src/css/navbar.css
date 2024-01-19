@@ -1,26 +1,45 @@
 
 .social-group {
-	padding: 0.6em 1.5em;
-	margin-right: 1rem;
+	/* padding: 0.6em 1.5em; */
+	margin-right: 5rem;
 }
 
 
 .btn-group {
 	padding: 0.6em 1.5em;
-	margin-left: 1rem;
+	width: 506px;
+	/* margin-left: 1rem; */
 }
 
+
+/* Icons */
 .github {  
 	background-image: url('../assets/github.svg');
 	margin-right: 2rem;
 }
 .linkedin { background-image: url('../assets/linkedin.png');}
 
+
 .icon {
 	display: inline-block;
 	width: 30px;
 	height: 30px;
 	background-size: 30px 30px;
+}
+
+.logo {
+	display: inline-block;
+	background-image: url('../assets/logo-dark.png');
+	margin-left: 5rem;
+	height: 65px;
+	width: 65px;
+	background-size: 65px 52px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.logo:hover {
+	cursor: pointer;
 }
 
 .navbar li {
@@ -64,6 +83,10 @@
 	position: sticky;
 	top: 0;
 	z-index: 3;
+}
+
+nav > .nav-icon {
+	display:none;
 }
 
 .navbar a {
@@ -170,16 +193,31 @@
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 	.navbar{
 		width: 100vw;
-		height:auto;
-		justify-content:right;
+		max-height: 3rem;
+		justify-content:space-between;
 		padding-top:0px;
 		padding-bottom:0px;
 		align-items:start;
 		position:sticky;
 		display:flex;
+	}
+
+	nav > .nav-icon {
+		display: inline;
+	}
+
+	.logo {
+		width: 50px;
+		height: 50px;
+		background-size: 50px 38.5px;
+		margin-left: 3vw;
+	}
+
+	.nav-content .nav-icon {
+		display:none;
 	}
 
 	.navbar a {color: white}
@@ -210,39 +248,41 @@
 	}
 
 	.nav-content {
-		visibility:hidden;
-		width:0;
-		height:0;
+		opacity: 0;
+		/* height: 0; */
+		width: 0;
 	}
 	.nav-btn {
 		display: inline-block;
 		margin: 1.5vw;
 	}
+}
 
-	@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
 
-		.menu-open .nav-content {
-			background-color: #dedede;
-		}
-	
-		.menu-open .nav-content a{
-			color: black;
-		}
-		.menu-open .nav-content  a.active{
-			color: #5bb9fc;
-			text-shadow: .2px .2px .2px black;
-		}
-	
-		.nav-btn-x:after {
-			background: #454545;
-			border-left: 3px solid #454545;
-		 }
-	
-		 .nav-btn-x:before {
-			background: #454545;
-			border-left: 3px solid #454545;
-		 }
+	.menu-open .nav-content {
+		background-color: #dedede;
 	}
 
+	.logo {
+		background-image: url('../assets/logo-light.png') !important; 
+	}
 
+	.menu-open .nav-content a{
+		color: black;
+	}
+	.menu-open .nav-content  a.active{
+		color: #5bb9fc;
+		text-shadow: .2px .2px .2px black;
+	}
+
+	.nav-btn-x:after {
+		background: #454545;
+		border-left: 3px solid #454545;
+	 }
+
+	 .nav-btn-x:before {
+		background: #454545;
+		border-left: 3px solid #454545;
+	 }
 }

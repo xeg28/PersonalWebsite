@@ -1,7 +1,6 @@
   import {React, useEffect} from 'react';
   import '../index.css';
   import '../css/home.css';
-  import Transition from './Transition';
   import headshotWebP from '../assets/headshot.webp';
   import headshot from '../assets/headshot.png';
 

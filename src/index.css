@@ -101,19 +101,21 @@ body {
   filter: blur(5px);
   transition: transform .8s, opacity .8s;
 }
+
 .card:first-child {
   margin-top: 0px;
 }
+
 .card:last-child {
   margin-bottom: 7rem;
 }
 
 .card:nth-child(odd) {
-  transform: translateX(-80%);
+  transform: translateX(-30%);
 }
 
 .card:nth-child(even) {
-  transform: translateX(80%);
+  transform: translateX(30%);
 }
 
 
@@ -150,7 +152,7 @@ body {
   }
 
   .card:first-child {
-    margin-top: 0px;
+    margin-top: 1rem;
   }
   .card:last-child {
     margin-bottom: 4.5rem;
@@ -165,6 +167,7 @@ body {
 @media (max-width: 700px) {
   .card {
     padding: 1em;
+    border-radius: 3vw;
   }
 }
 
