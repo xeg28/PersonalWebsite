@@ -1,8 +1,10 @@
-# React + Vite
+# Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I created a personal website using the React framework to showcase some of my best work. This website includes information about myself such as a personal statement, experience, projects, and contact information.
 
-Currently, two official plugins are available:
+## Features
+- Includes a navigation bar that scrolls to the appropriate area of the page.
+- The website is responsive for large and small screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+(https://xeg28.github.io/PersonalWebsite)[Personal Website]
