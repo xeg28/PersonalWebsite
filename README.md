@@ -7,4 +7,4 @@ I created a personal website using the React framework to showcase some of my be
 - The website is responsive for large and small screen sizes.
 
 
-[Personal Website](https://xeg28.github.io/PersonalWebsite)
+[Visit here](https://xeg28.github.io/PersonalWebsite)
