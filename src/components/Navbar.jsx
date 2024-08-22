@@ -170,8 +170,8 @@ function Navbar() {
                         >Projects</Link></li>
                 </div>
                 <div className="social-group">
-                    <a className="github icon" href='https://github.com/xeg28'></a>
-                    <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/'></a>
+                    <a className="github icon" href='https://github.com/xeg28' target="_blank"></a>
+                    <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank"></a>
                 </div>
             </div>
             <a className="nav-btn" style={{height: '30px'}} id='nav-btn-menu' onClick={() => navToggle()}><span className="nav-btn-icon icon"></span></a>

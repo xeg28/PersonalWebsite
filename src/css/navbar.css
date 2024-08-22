@@ -14,7 +14,7 @@
 
 /* Icons */
 .github {  
-	background-image: url('../assets/github.svg');
+	background-image: url('./svg/github.svg');
 	margin-right: 2rem;
 }
 .linkedin { background-image: url('../assets/linkedin.png');}
