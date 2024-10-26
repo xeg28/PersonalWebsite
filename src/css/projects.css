@@ -9,6 +9,10 @@
     padding-left: 2em;
 }
 
+.technologies {
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .img-container {
     display: flex;

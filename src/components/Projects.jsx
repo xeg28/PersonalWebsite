@@ -24,7 +24,7 @@ function Projects() {
             my software engineering course but I completely refactored the project, added new features, and deployed it. 
             This project allows you to upload image, video, and audio files to the web for storage. This website 
             also allows you to view the files you have uploaded."
-        technologies={['codeigniter', 'php', 'js', 'html', 'css', 'bootstrap']}
+        technologies={['codeigniter', 'php', 'js', 'dropzonejs', 'html', 'css', 'bootstrap']}
         features={["You can register an account", "The files uploaded can be viewed in the site.", 
         "Allows users to upload image, video, and audio files to the site. These files are only visible the user that uploaded the file.",
         "Users can share files to other registered users.", "Users can download any file they uploaded.", 
