@@ -13,6 +13,9 @@ import MediaProjectViewImage from '../assets/mediaProject(viewImage).webp';
 import MediaProjectViewVideo from '../assets/mediaProject(viewVideo).webp';
 import PongGameGameplay from '../assets/PongGame(Gameplay).webp';
 import PongGameSettings from '../assets/PongGame(Settings).webp';
+import OverwrappedMenu from '../assets/OverwrappedMenu.webp';
+import OverwrappedGame from '../assets/OverwrappedGame.webp';
+
 
 function Projects() {
   return (
@@ -46,6 +49,28 @@ function Projects() {
         }
         url="https://xeg28.serv00.net/"
         />
+
+        <Project 
+          title="Overwrapped"
+          description="I created this game along with two other group members for my 3D Game Development course. 
+          This was a semester long project where we had to create a local co-op game in unity. Our game took inspiration
+          from a game called Overcooked but it is Christmas themed."
+          technologies={['unity', 'csharp']}
+          features={["Supports two keyboard players and multiple controller players.",
+                    "Players can sprint, jump, throw items, drop items, and work on items.", 
+                    "Has a user interface that provides information about each player.", 
+                    "In later levels, has obstacles like falling snowballs and icicles."
+          ]}
+          howToUse="When loading the site, the description of the game will show the controlls
+          for keyboard and controller. The point of the game is to create toys as fast as possible. There is
+          a time limit for each toy and players need to work together to get them done in time. If three toys 
+          are not finished in time, the level is failed."
+          imagePairs={[{imageLeft: {id:"overwrapped-menu", src:OverwrappedMenu},
+                        imageRight: {id:"overwrapped-game", src:OverwrappedGame}
+          }]}   
+          url="https://simmer.io/@paperclip_1/overwrapped-version-1"
+        />
+
 
         <Project 
           title="Pong Game"

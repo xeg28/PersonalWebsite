@@ -33,8 +33,8 @@ function Education() {
             California State University Los Angeles (In Progress)
           </span>
           <span className="paragraph">
-            <strong>Higher Education GPA: 3.71<br/>
-            Cal State LA GPA: 3.9<br/>
+            <strong>Higher Education GPA: 3.74<br/>
+            Cal State LA GPA: 3.91<br/>
             Degree: Bachelor of Science in Computer Science<br/>
             Expected Graduation Date: May 2025</strong>
           </span>
@@ -43,7 +43,7 @@ function Education() {
             <div className="monospace fs-400" id="courses">
               <li>Object Oriented Programming</li>
               <li>Programming with Data Structures</li>
-              <li>Introduction to Relational Databases</li>
+              <li>Principles of Database Systems</li>
               <li>Discrete Structures</li>
               <li>Programming Paradigms</li>
               <li>Linear Algebra</li>
@@ -54,6 +54,8 @@ function Education() {
               <li>Introcuction to Operating Systems</li>
               <li>Artificial Intelligence</li>
               <li>Concurrent and Distributed Programming</li>
+              <li>Introduction to 3D Game Programming</li>
+              <li>Computer Networking Protocols</li>
             </div>
             {/* <span className="monospace fs-500" style={{fontWeight: 600}}>Courses in Progress</span>
             <div className="monospace fs-400" id="courses"> */} 

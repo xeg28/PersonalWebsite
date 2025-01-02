@@ -49,7 +49,7 @@
 }
 
 body::-webkit-scrollbar {
-  width: 0.25rem;
+  width: 0.5vw;
 }
 
 body::-webkit-scrollbar-track {
@@ -125,6 +125,9 @@ body {
   filter: blur(0);
 }
 
+.transparent {
+  opacity:0;
+}
 
 .hide {
   display:none;
