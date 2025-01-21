@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from 'react';
 import {Link} from 'react-scroll';
-import navIconDark from '../assets/logo-dark.png';
+// import navIconDark from '../assets/logo-dark.png';
 import '../css/navbar.css'
 
 

@@ -3,21 +3,24 @@ import '../index.css';
 import '../css/projects.css';
 import Project from './Project';
 
-import SnakeMenu from '../assets/SnakeGameMenu.png';
-import SnakeGameplay from '../assets/SnakeGameplay.png';
-import TypingTestTitle from '../assets/TypingTestTitle.png';
-import TypingTestResults from '../assets/TypingTestResults.png';
-import MediaProjectHome from '../assets/mediaProject(home).webp';
-import MediaProjectUpload from '../assets/mediaProject(upload).webp';
-import MediaProjectViewImage from '../assets/mediaProject(viewImage).webp';
-import MediaProjectViewVideo from '../assets/mediaProject(viewVideo).webp';
-import PongGameGameplay from '../assets/PongGame(Gameplay).webp';
-import PongGameSettings from '../assets/PongGame(Settings).webp';
-import OverwrappedMenu from '../assets/OverwrappedMenu.webp';
-import OverwrappedGame from '../assets/OverwrappedGame.webp';
-
 
 function Projects() {
+
+  const images = {
+    'SnakeMenu':'images/SnakeGameMenu.png', 
+    'SnakeGameplay':'images/SnakeGameplay.png', 
+    'TypingTestTitle':'images/TypingTestTitle.png',
+    'TypingTestResults':'images/TypingTestResults.png', 
+    'MediaProjectHome':'images/mediaProject(home).webp',
+    'MediaProjectUpload':'images/mediaProject(upload).webp',
+    'MediaProjectViewImage':'images/mediaProject(viewImage).webp', 
+    'MediaProjectViewVideo':'images/mediaProject(viewVideo).webp',
+    'PongGameGameplay':'images/PongGame(Gameplay).webp',
+    'PongGameSettings':'images/PongGame(Settings).webp', 
+    'OverwrappedMenu':'images/OverwrappedMenu.webp',
+    'OverwrappedGame':'images/OverwrappedGame.webp'
+  }
+
   return (
     <div className="card" id="projects">
       <div id="projects-content">
@@ -39,11 +42,11 @@ function Projects() {
               Once you logged in, you can click on the upload link in the navbar. Here you can upload
               image, video, and audio files."
         imagePairs={[
-                      {imageLeft: {id:"media-project-home", src:MediaProjectHome},
-                      imageRight: {id:"media-project-upload", src:MediaProjectUpload}
+                      {imageLeft: {id:"media-project-home", src:images.MediaProjectHome},
+                      imageRight: {id:"media-project-upload", src:images.MediaProjectUpload}
                       },
-                      {imageLeft: {id:"media-project-viewImage", src:MediaProjectViewImage},
-                      imageRight: {id:"media-project-viewVideo", src:MediaProjectViewVideo}
+                      {imageLeft: {id:"media-project-viewImage", src:images.MediaProjectViewImage},
+                      imageRight: {id:"media-project-viewVideo", src:images.MediaProjectViewVideo}
                       }
                     ]  
         }
@@ -59,16 +62,33 @@ function Projects() {
           features={["Supports two keyboard players and multiple controller players.",
                     "Players can sprint, jump, throw items, drop items, and work on items.", 
                     "Has a user interface that provides information about each player.", 
-                    "In later levels, has obstacles like falling snowballs and icicles."
+                    "In later levels, there's obstacles like falling snowballs and icicles."
           ]}
-          howToUse="When loading the site, the description of the game will show the controlls
-          for keyboard and controller. The point of the game is to create toys as fast as possible. There is
+          howToUse="When loading the site, the description of the game will show the controls
+          for keyboard and controller. The goal of the game is to create toys as fast as possible. There is
           a time limit for each toy and players need to work together to get them done in time. If three toys 
           are not finished in time, the level is failed."
-          imagePairs={[{imageLeft: {id:"overwrapped-menu", src:OverwrappedMenu},
-                        imageRight: {id:"overwrapped-game", src:OverwrappedGame}
+          imagePairs={[{imageLeft: {id:"overwrapped-menu", src:images.OverwrappedMenu},
+                        imageRight: {id:"overwrapped-game", src:images.OverwrappedGame}
           }]}   
           url="https://simmer.io/@paperclip_1/overwrapped-version-1"
+        />
+
+      <Project 
+          title="Personal Website"
+          description="I created this website to provide information about myself such as my interests, education,
+           experience, and projects. I decided to create this site with the React Framework because I wanted to learn 
+           how to use a popular frontend framework."
+          technologies={['react', 'js', 'css']}
+          features={["Includes a navbar that will scroll to certain sections of the website.", 
+                      "Includes animations when scrolling to a section.", 
+                      "Users can click on an images to enlarge.", 
+                      "The website is responsive so it can be used on mobile."
+          ]}
+          howToUse="Users can scroll to sections or use the navbar which will automatically scroll to a section. 
+          Users can click on project images to enlarge them."
+          imagePairs={[]}   
+          url="https://xeg28.github.io/PersonalWebsite"
         />
 
 
@@ -86,8 +106,8 @@ function Projects() {
           howToUse="When you load up the game there is a controls menu showing how to move the paddles. 
           When you click to start the game, you have to predict where the ball is going and move the paddle
           to block the ball. When the ball hits the paddle, its direction and speed is random to make it hard to predict."
-          imagePairs={[{imageLeft: {id:"pong-game-gameplay", src:PongGameGameplay},
-                        imageRight: {id:"pong-game-settings", src:PongGameSettings}
+          imagePairs={[{imageLeft: {id:"pong-game-gameplay", src:images.PongGameGameplay},
+                        imageRight: {id:"pong-game-settings", src:images.PongGameSettings}
           }]}   
           url="https://xeg28.github.io/PongGame"
         />
@@ -104,8 +124,8 @@ function Projects() {
           ]}
           howToUse="You will control the snake and the goal is to catch the red square. Everytime you catch a square, 
                 your score will go up by one point. If you crash into yourself, the game is over."
-          imagePairs={[{imageLeft: {id:"snake-menu", src:SnakeMenu},
-                        imageRight: {id:"snake-Gameplay", src:SnakeGameplay}
+          imagePairs={[{imageLeft: {id:"snake-menu", src:images.SnakeMenu},
+                        imageRight: {id:"snake-Gameplay", src:images.SnakeGameplay}
             }]}
           url="https://xeg28.github.io/Snake-Game"
         />
@@ -130,8 +150,8 @@ function Projects() {
               focus textfields and buttons by pressing tab. The program provides shortcuts that allows
               you to restart a test or give you a random quote from your list of quotes. These 
               shortcuts only work when the quote text field is in focus."
-        imagePairs={[{imageLeft: {id:"typing-main", src:TypingTestTitle},
-                      imageRight: {id:"typing-results", src:TypingTestResults}
+        imagePairs={[{imageLeft: {id:"typing-main", src:images.TypingTestTitle},
+                      imageRight: {id:"typing-results", src:images.TypingTestResults}
                     }]}
         links={<span className="monospace fs-400">
               You will need to install <a className="monospace fs-400" href="https://www.oracle.com/java/technologies/javase" target="_blank">Java 17</a>.

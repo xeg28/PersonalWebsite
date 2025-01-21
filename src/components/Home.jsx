@@ -1,8 +1,7 @@
   import {React, useEffect} from 'react';
   import '../index.css';
   import '../css/home.css';
-  import headshotWebP from '../assets/headshot.webp';
-  import headshot from '../assets/headshot.png';
+
 
   function Home() {
 
@@ -16,15 +15,15 @@
             </div>
             <picture>
               <source
-                srcSet={headshotWebP}
+                srcSet="images/headshot.webp"
                 type="image/webp"
               />
               <source
-                srcSet={headshot}
+                srcSet="images/headshot.png"
                 type="image/png"
               />
 
-              <img src={headshot} alt="headshot" id="headshot" loading="lazy"/> 
+              <img src="images/headshot.webp" alt="headshot" id="headshot" loading="lazy"/> 
             </picture>
               
             <div className="contact-info">

@@ -6,7 +6,7 @@
   "homepage": "https://xeg28.github.io/PersonalWebsite",
   "scripts": {
     "dev": "vite",
-    "start": "vite --host 192.168.0.176",
+    "start": "vite --host",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

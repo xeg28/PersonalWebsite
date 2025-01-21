@@ -71,7 +71,7 @@
 
 
 #email {
-    background-image: url(../assets/email.png);
+    background-image: url(images/email.png);
     filter: invert(1);
     width: 30px;
     height: 20px;
@@ -87,7 +87,7 @@
 }
 
 #phone {
-    background-image: url(../assets/phone.png);
+    background-image: url(images/phone.png);
     filter: invert(1);
 }
 
