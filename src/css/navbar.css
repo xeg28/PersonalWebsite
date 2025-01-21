@@ -14,10 +14,10 @@
 
 /* Icons */
 .github {  
-	background-image: url('svg/github.svg');
+	background-image: url('../svg/github.svg');
 	margin-right: 2rem;
 }
-.linkedin { background-image: url('images/linkedin.png');}
+.linkedin { background-image: url('../images/linkedin.png');}
 
 
 .icon {
@@ -29,7 +29,7 @@
 
 .logo {
 	display: inline-block;
-	background-image: url('images/logo-dark.png');
+	background-image: url('../images/logo-dark.png');
 	margin-left: 5rem;
 	height: 65px;
 	width: 65px;
@@ -168,7 +168,7 @@ nav > .nav-icon {
     /* left: 28px; */
 }
 
-.nav-btn-icon {background-image: url(images/menu.png);}
+.nav-btn-icon {background-image: url('../images/menu.png');}
 
 @media (prefers-color-scheme: light) {
 	.navbar {
@@ -265,7 +265,7 @@ nav > .nav-icon {
 	}
 
 	.logo {
-		background-image: url('images/logo-light.png') !important; 
+		background-image: url('../images/logo-light.png') !important; 
 	}
 
 	.menu-open .nav-content a{
