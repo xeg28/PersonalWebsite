@@ -14,10 +14,10 @@ function changeSchoolLabel() {
   var mediaQuery = window.matchMedia('(max-width: 900px)');
   const collegeLabel = document.getElementById('college-label');
     if(mediaQuery.matches && collegeLabel) {
-     collegeLabel.innerHTML = "Cal State LA (In Progress)";
+     collegeLabel.innerHTML = "Cal State LA";
     }
     else if(collegeLabel){
-        document.getElementById('college-label').innerHTML = "California State University Los Angeles (In Progress)";
+        document.getElementById('college-label').innerHTML = "California State University, Los Angeles";
     }
 }
 
@@ -30,13 +30,15 @@ function Education() {
       <div id="education-content">
         <div className="flex-container" id="college">
           <span className="label-theme school-label" id="college-label">
-            California State University Los Angeles (In Progress)
+            California State University, Los Angeles
           </span>
           <span className="paragraph">
-            <strong>Higher Education GPA: 3.74<br/>
-            Cal State LA GPA: 3.91<br/>
+            <strong>Higher Education GPA: 3.75<br/>
+            Cal State LA GPA: 3.92<br/>
             Degree: Bachelor of Science in Computer Science<br/>
-            Expected Graduation Date: May 2025</strong>
+            Awards/Honors: Dean's List 2020-2024; Summa Cum Laude May 17, 2025<br/>
+            Confer Date: May 17, 2025
+            </strong>
           </span>
           <div id="courses-container">
             <span className="monospace fs-500 fw-600">Courses Taken</span>

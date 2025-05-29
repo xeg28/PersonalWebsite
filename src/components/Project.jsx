@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
 import '../css/projects.css';
@@ -54,7 +54,8 @@ function Project(props) {
             top: `${imagePosition.top}px`,
             left: `${imagePosition.left}px`,
             width: `${imagePosition.width}px`,
-            height: `${imagePosition.height}px`
+            height: `${imagePosition.height}px`,
+            borderRadius: '1vw'
           }}
           onClick={removeImageFocus}
         />
@@ -86,7 +87,8 @@ function animateToCenter() {
   const deltaY = (windowHeight - newHeight) / 2 - currentY;
 
   // Animate the element to its new position
-  image.style.transition = 'transform 0.5s ease, width 0.5s ease'; 
+  image.style.transition = 'transform 0.5s ease, width 0.5s ease, border-radius 0.5s ease'; 
+  image.style.borderRadius = '0'
   image.style.transform = `translate(${deltaX}px, ${deltaY}px)`; 
   image.style.width = '90vw';
   image.style.height = 'auto';

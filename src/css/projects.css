@@ -80,24 +80,6 @@
     }
 }
 
-.project-image.focused-left{
-    /* z-index: 1; */
-    /* position: absolute; */
-    /* top:50%;
-    left:50%;
-    transform: translate(-50%, -50%) scale(2); */
-    /* max-width: 75vw; */
-}
-
-.project-image.focused-right {
-    /* z-index: 1; */
-    /* position: absolute; */
-    /* top:50%;
-    left:50%;
-    transform: translate(-50%, -50%) scale(2); */
-    /* max-width: 75vw; */
-}
-
 
 .grid-container {
     margin-top: 1rem;

@@ -71,7 +71,7 @@ function Projects() {
           imagePairs={[{imageLeft: {id:"overwrapped-menu", src:images.OverwrappedMenu},
                         imageRight: {id:"overwrapped-game", src:images.OverwrappedGame}
           }]}   
-          url="https://simmer.io/@paperclip_1/overwrapped-version-1"
+          url="https://xeg28.itch.io/overwrapped"
         />
 
       <Project 
