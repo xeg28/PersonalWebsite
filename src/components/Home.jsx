@@ -40,9 +40,9 @@ function Home() {
         <div className="about-me">
             <span className="label-theme">About Me</span>
             <span className="paragraph">
-              I am a senior at California State University Los Angeles majoring in computer science. As a kid, 
+              I am an alumnus of California State University, Los Angeles, with a Bachelor's degree in Computer Science. As a kid, 
               I spent a lot of time on the computer playing games and I would often encounter issues with software. 
-              Troubleshooting these issues made me develop an interest in not only problem solving, but also developed 
+              Troubleshooting these issues made me develop an interest in not only problem-solving but also developed 
               a curiosity about the inner workings of software.
             </span>
               {/* <br/><br/> */}
