@@ -53,7 +53,7 @@ function Education() {
               <li>Analysis of Algorithms</li>
               <li>Web and Internet Programming</li>
               <li>Introduction to Automata Theory</li>
-              <li>Introcuction to Operating Systems</li>
+              <li>Introduction to Operating Systems</li>
               <li>Artificial Intelligence</li>
               <li>Concurrent and Distributed Programming</li>
               <li>Introduction to 3D Game Programming</li>
