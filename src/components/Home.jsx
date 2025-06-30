@@ -2,64 +2,64 @@ import '../index.css';
 import '../css/home.css';
 
 
+
 function Home() {
 
-  return (
-    <div className="card" id="home">
-      <div id="home-content">
-        <div className="contact">
-          <div className="pic-text">
-            <span className="monospace" id="name">Emmanuel Gonzalez</span>
-            <span className="monospace" id="occ">Computer Science Graduate</span>
-          </div>
-          <picture>
-            <source
-              srcSet="images/headshot.webp"
-              type="image/webp"
-            />
-            <source
-              srcSet="images/headshot.png"
-              type="image/png"
-            />
+  const handleMore = () => {
+    const moreDiv = document.getElementById("more-about");
+    console.log(moreDiv);
+    moreDiv.classList.toggle("show-text");
+  }
 
-            <img src="images/headshot.webp" alt="headshot" id="headshot" loading="lazy"/> 
-          </picture>
-            
-          <div className="contact-info">
-            <h2 className='monospace' style={{margin: '0 auto'}}>Contact</h2>
-            <div className="email">
-            <a style={{height: "20px"}} href="mailto:eg2895@gmail.com"><span className="icon" id="email"></span></a>
-              <span><a className="monospace" href="mailto:eg2895@gmail.com">eg2895@gmail.com</a></span>
-            </div>
-            <div className="phone">
-              <a style={{height: '30px'}} href="tel:5623902955"><span className="icon" id="phone"></span></a>
-              <span><a className="monospace" href="tel:5623902955">(562)-390-2955</a></span>
-            </div>
+  return (
+    <div id="home">
+      <div id="about">
+        <div id="about-text">
+          <div className="monospace fs-700" id="name">Emmanuel Gonzalez</div>
+          <div className='picture'><img src="images/headshot.webp" alt="" /></div>
+          <div className="monospace fs-400 text-primary">
+            I'm a Computer Science graduate from California State University, Los Angeles, 
+            with a strong interest in software development driven by early experiences troubleshooting 
+            games. I'm now seeking a software development internship to build professional skills, learn 
+            new technologies, and grow as a team contributor.
           </div>
         </div>
-        <div className="about-me">
-            <span className="label-theme">About Me</span>
+        <div className='picture'><img src="images/headshot.webp" alt="" /></div>
+      </div>
+
+      <div>
+        <div className="show-more-link" onClick={handleMore}><strong>More about me</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" /></div>
+        <div id="more-about" >
+          <div id="more-text">
             <span className="paragraph">
-              I am an alumnus of California State University, Los Angeles, with a Bachelor's degree in Computer Science. As a kid, 
-              I spent a lot of time on the computer playing games and I would often encounter issues with software. 
-              Troubleshooting these issues made me develop an interest in not only problem-solving but also developed 
+              I am an alumnus of California State University, Los Angeles, with a Bachelor's degree in Computer Science. As a kid,
+              I spent a lot of time on the computer playing games and I would often encounter issues with software.
+              Troubleshooting these issues made me develop an interest in not only problem-solving but also developed
               a curiosity about the inner workings of software.
             </span>
-              {/* <br/><br/> */}
-              <span className="paragraph">
-                I've had the opportunity to participate in a CAHSI LREU program where I gained research experience. I helped 
-                with a research project that involved using machine learning to detect emotions and sentiments in tweets related to 
-                COVID-19. While my primary focus is not machine learning, I improved my skills in data analysis and research methodology. 
-              </span>
+            {/* <br/><br/> */}
+            <span className="paragraph">
+              I've had the opportunity to participate in a CAHSI LREU program where I gained research experience. I helped
+              with a research project that involved using machine learning to detect emotions and sentiments in tweets related to
+              COVID-19. While my primary focus is not machine learning, I improved my skills in data analysis and research methodology.
+            </span>
 
-              {/* <br/><br/> */}
-              <span className="paragraph">
-                My current goal is to obtain an internship in software development so I can gain professional experience, learn new technologies,
-                and improve my ability to work in a team.
-              </span>
-            {/* </span> */}
+            {/* <br/><br/> */}
+            <span className="paragraph">
+              My current goal is to obtain an internship in software development so I can gain professional experience, learn new technologies,
+              and improve my ability to work in a team.
+            </span>
+          </div>
+        </div>
+        <div className="links">
+          <button id="resume-btn">Resume
+            <img src="svg/doc-download.svg" alt="" />
+          </button>
+          <a className="github icon" href='https://github.com/xeg28' target="_blank"></a>
+          <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank"></a>
         </div>
       </div>
+
     </div>
   );
 }

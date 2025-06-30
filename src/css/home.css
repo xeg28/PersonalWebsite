@@ -1,123 +1,132 @@
-
-#home-content {
+#home {
+    margin-top: 1rem;
+    width: 750px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr auto;
+    column-gap: 3rem;
+}
+
+
+#about {
+    text-align: start;
+    display: grid;
+    grid-template-columns: 2fr auto;
     column-gap: 2rem;
 }
 
-.pic-text {
-    display:contents;
-}
-
-#name {
-    font-size: var(--fs-600);
-}
-#headshot {
-    border-radius: 50%;
-    width:250px;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    border: 10px solid white;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-
-#occ {
-    font-size: calc(var(--fs-600) - .5rem);
-}
-
-@media (max-width: 750px) {
-    #home-content {
-        grid-template-columns: 1fr;
-        row-gap: 3rem;
-    }
-    .pic-text {
-        display:contents;
-    }
-    #pic-name {
-        display: inline-block;
-    }
-    #headshot {
-        height:260px;
-        width: 220px;
-    }
-    #name {
-        font-size: calc(var(--fs-xl) - 1px);
-    }
-    #occ {
-        font-size: calc(var(--fs-600) - 1px);
+@media (max-width: 800px) {
+    #home {
+        width: 90vw;
     }
 }
 
 
-.contact-info {
+
+#more-text {
+    padding: 0 5px 0 5px;
+    border-radius: 1vw;
+    box-sizing: border-box;
+}
+
+.picture {
     display:flex;
     flex-direction: column;
-    text-align: left;
-    max-width: 250px;
-    /* margin-top: 1rem; */
-}
-
-.about-me {
-    margin: 0 auto;
-    align-items: start;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
     justify-content: center;
+    align-self: center;
 }
 
-
-#email {
-    background-image: url('../images/email.png');
-    filter: invert(1);
-    width: 30px;
-    height: 20px;
-    background-size: 30px 20px;
+.picture img {
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: .5vw;
 }
 
-.email {
-    display:flex;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 1em;
-    margin-top: 1rem;
+#about-text .picture {
+    display: none;
 }
 
-#phone {
-    background-image: url('../images/phone.png');
-    filter: invert(1);
+@media (max-width: 450px) {
+    #about {
+        grid-template-columns: 1fr;
+    }
+    .picture {
+        display: none;
+    }
+
+    #name {
+        text-align: center;
+    }
+
+    #about-text .picture {
+        display: flex !important;
+        align-items: center;
+        margin: 10px 0 10px 0;
+    }
+    #about-text .picture img{
+        border-radius: 10px;
+    }
 }
 
-.phone {
-    display:flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact {
+.links {
     display: flex;
-    flex-direction: column;
-    place-items: center;
+    flex-direction: row;
+    gap: 2rem;
 }
 
-
-#name {
-    font-weight: 400;
+.icon {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-size: 30px 30px;
 }
 
+/* Icons */
+.github {  
+	background-image: url('../svg/github.svg');
+}
+.linkedin { background-image: url('../images/linkedin.png');}
 
-.about-me-container *{
-    width: fit-content;
+#resume-btn {
+    font-size: var(--fs-400);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    transition: background-color 150ms linear;
 }
 
-@media (prefers-color-scheme: light) { 
-    #phone {filter: invert(0);}
-    #email {filter: invert(0);}
-    .picture-frame {background-color: #232323;}
-    #headshot {border: 10px solid #232323}
-    .contact a {text-shadow: .5px .5px .5px black;}
+#resume-btn:hover {
+    background-color: #1b1b1b;
 }
 
+#resume-btn:focus {
+    outline: none !important;
+}
+
+#more-about {
+    display: grid;
+    grid-template-rows: 0fr;
+    min-height: 0px;
+    transition: grid-template-rows 200ms linear;
+}
+
+#more-about div{
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+.show-text {
+    grid-template-rows: 1fr !important;
+}
+
+#resume-btn img {
+    height: calc(var(--fs-400) + 5px);
+    width: calc(var(--fs-400) + 5px);
+    margin-left: 5px;
+    filter: invert(1);
+}
