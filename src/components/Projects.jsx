@@ -22,7 +22,7 @@ function Projects() {
   }
 
   return (
-    <div className="card" id="projects">
+    <div className="card section" id="projects">
       <div id="projects-content">
       <Project 
         title="Media Management System" 

@@ -1,4 +1,5 @@
-import {React, useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {Link} from 'react-scroll';
 // import navIconDark from '../assets/logo-dark.png';
 import '../css/navbar.css'
@@ -17,7 +18,7 @@ const observer = new IntersectionObserver((entries) => {
 function activateLinks() {
     let top = window.scrollY;
     let links = document.querySelectorAll('.route');
-    let cards = document.querySelectorAll('.card');
+    let cards = document.querySelectorAll('.section');
     cards.forEach(card => {
         let offset = card.offsetTop-120;
         let height = card.offsetHeight;
@@ -27,7 +28,8 @@ function activateLinks() {
             links.forEach(link => {
                 link.classList.remove('active');
             });
-            document.getElementById('lk-' + id).classList.add('active');
+            const activeLink = document.getElementById('lk-' + id);
+            if(activeLink) activeLink.classList.add('active');
         }
     });
  
@@ -42,55 +44,53 @@ function setVhVariable() {
 }
 
 
-function navToggle() {
-    const navbar = document.querySelector('.navbar');
-    const body = document.querySelector('body');
-    document.getElementById("nav-btn-menu").classList.toggle('hide');
-    document.getElementById("nav-btn-x").classList.toggle('hide');
-    body.classList.toggle('no-scroll');
-    navbar.classList.toggle('menu-open');
-    
-}
-
-function closeMenu() {
-    const mediaQuery = window.matchMedia('(max-width: 900px)');
-    const navbar = document.querySelector('.navbar');
-    const body = document.querySelector('body');
-    var elements = document.getElementsByClassName('route');
-   
-    window.addEventListener('resize', function() {
-
-        setVhVariable();
-        
-        if(!mediaQuery.matches && navbar.classList.contains('menu-open')) {
-            body.classList.remove('no-scroll');
-        }
-     
-        if(mediaQuery.matches && navbar.classList.contains('menu-open')) { 
-            body.classList.add('no-scroll');
-            this.window.scrollTo(0,0);
-        }
-
-    });
-
-    for(let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener('click', function(event) { 
-            if(navbar.classList.contains('menu-open')) {
-                navbar.classList.remove('menu-open');
-                document.getElementById("nav-btn-menu").classList.toggle('hide');
-                document.getElementById("nav-btn-x").classList.toggle('hide');
-            }
-            if(body.classList.contains('no-scroll')) 
-                body.classList.remove('no-scroll');
-        });
-    }
-}
-
-
 function Navbar() {
 
     const [navOffset, setNavOffset] = useState(70);
-    
+    const [theme, setTheme] = useState("");
+    const [showNav, setShowNav] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+
+    const toggleTheme = () => {
+        if(theme === "dark") {
+            setTheme("light");
+        }
+        else {
+            setTheme("dark");
+        }
+    }
+
+    const toggleNav = () => {
+        const body = document.querySelector('body');
+        body.classList.toggle("no-scroll")
+        setShowNav((prevVal) => {
+            return !prevVal
+        });
+
+    }
+
+    useEffect(() => {
+        if(theme === "dark") {
+            localStorage.setItem("theme", "dark");
+        } 
+        else if(theme === "light") {
+            localStorage.setItem("theme", "light");
+        }
+        const root = document.querySelector(":root");
+        const storageTheme = localStorage.getItem("theme");
+        if(storageTheme === "dark") {
+            root.classList.add("dark");
+            root.classList.remove("light");
+            setTheme("dark");
+        } 
+        else {
+            root.classList.add("light");
+            root.classList.remove("dark");
+            setTheme("light");
+        }
+    }, [theme])
+
     useEffect(() => {
         const updateOffset = (newOffset) => {
             if(window.innerWidth <= 700) {
@@ -98,13 +98,22 @@ function Navbar() {
             } else {
                 setNavOffset(75);
             }
+
+            if(window.innerWidth <= 500) {
+                setIsMobile(true);
+                if(showNav)
+                    document.querySelector("body").classList.add("no-scroll");
+            }
+            else {
+                setIsMobile(false);
+                if(showNav)
+                    document.querySelector("body").classList.remove("no-scroll");
+            }
         };
-        closeMenu();
         updateOffset();
         const cards = document.querySelectorAll('.card');
         cards.forEach((el) => observer.observe(el));
         window.addEventListener('scroll', activateLinks);
-
         window.addEventListener('resize', updateOffset);
 
         return () => {
@@ -112,68 +121,118 @@ function Navbar() {
         };
     }, []);
 
+
     return (
     <>
-        <nav className="navbar">
-            <Link
-                to="home"
-                smooth={true} 
-                offset={-navOffset}
-                duration={500}
-                className="nav-icon"
-                ><span alt="nav-icon" className="logo"></span></Link>
-             
+       <div className="nav-container">
+         <nav className="navbar">             
             <div className="nav-content">
-                <Link
+                    { (!isMobile) &&
+                    (<div className="btn-group nav-links" id="btn-group">
+                        <li><Link 
+                            className={'route active'}
+                            id="lk-home"
+                            to="home"
+                            smooth={true} 
+                            offset={-navOffset}
+                            duration={500}
+                            activeClass=''
+                            >About</Link></li>
+                        <li><Link 
+                        className={ 'route'} 
+                            id="lk-education"
+                            to={"education"}
+                            smooth={true} 
+                            offset={-navOffset}
+                            duration={500}
+                            activeClass=''
+                            >Education</Link></li>
+                        <li><Link 
+                            className={'route'} 
+                            id="lk-experience"
+                            to="experience"
+                            smooth={true}
+                            offset={-navOffset}
+                            duration={500}
+                            activeClass=''
+                            >Experience</Link></li>
+                        <li>
+                            <Link className={ 'route'} 
+                            id="lk-projects"
+                            to="projects"
+                            smooth={true}
+                            offset={-navOffset}
+                            duration={500}
+                            activeClass=''
+                            >Projects</Link></li>
+                    </div>)
+
+                    }
+                <button class="theme-toggle" onClick={toggleTheme}>
+                    {theme == "dark" ? 
+                    (<img src="svg/light.svg" alt="" />) :
+                    (<img src="svg/dark.svg" alt="" />) }
+                </button>
+                <button className="nav-btn" onClick={toggleNav}>
+                    {showNav ? 
+                    (<img src="svg/close.svg" alt="" />) : 
+                    (<img src="svg/menu.svg" alt="" />)}
+                </button>
+            </div>
+        </nav>
+        <AnimatePresence>
+        {(showNav && isMobile) && (
+        <motion.div className="mobile-nav nav-links"
+        initial={ {x: "-100%", opacity: 0 }}
+        animate={ {x: 0, opacity: 1} }
+        exit= {{ x: "-100%", opacity: 0 }}
+        transition = { {duration: 0.3} }
+        >
+        <li><Link 
+                className={'route active'}
+                id="lk-home"
                 to="home"
                 smooth={true} 
                 offset={-navOffset}
                 duration={500}
-                className="nav-icon"
-                ><span alt="nav-icon" className="logo"></span></Link>
-                <div className="btn-group" id="btn-group">
-                    <li><Link 
-                        className={'route active'}
-                        id="lk-home"
-                        to="home"
-                        smooth={true} 
-                        offset={-navOffset}
-                        duration={500}
-                        activeClass=''
-                        >About</Link></li>
-                    <li><Link 
-                    className={ 'route'} 
-                        id="lk-education"
-                        to={"education"}
-                        smooth={true} 
-                        offset={-navOffset}
-                        duration={500}
-                        activeClass=''
-                        >Education</Link></li>
-                    <li><Link 
-                        className={'route'} 
-                        id="lk-experience"
-                        to="experience"
-                        smooth={true}
-                        offset={-navOffset}
-                        duration={500}
-                        activeClass=''
-                        >Experience</Link></li>
-                    <li>
-                        <Link className={ 'route'} 
-                        id="lk-projects"
-                        to="projects"
-                        smooth={true}
-                        offset={-navOffset}
-                        duration={500}
-                        activeClass=''
-                        >Projects</Link></li>
-                </div>
-            </div>
-            <a className="nav-btn" style={{height: '30px'}} id='nav-btn-menu' onClick={() => navToggle()}><span className="nav-btn-icon icon"></span></a>
-            <a className="nav-btn hide" style={{height: '30px'}} id='nav-btn-x' onClick={() => navToggle()}><span className="nav-btn-x icon"></span></a>
-        </nav>
-       
+                activeClass=''
+                onClick={toggleNav}
+                >About</Link></li>
+            <li><Link 
+            className={ 'route'} 
+                id="lk-education"
+                to={"education"}
+                smooth={true} 
+                offset={-navOffset}
+                duration={500}
+                activeClass=''
+                onClick={toggleNav}
+                >Education</Link></li>
+            <li><Link 
+                className={'route'} 
+                id="lk-experience"
+                to="experience"
+                smooth={true}
+                offset={-navOffset}
+                duration={500}
+                activeClass=''
+                onClick={toggleNav}
+                >Experience</Link></li>
+            <li>
+                <Link className={ 'route'} 
+                id="lk-projects"
+                to="projects"
+                smooth={true}
+                offset={-navOffset}
+                duration={500}
+                activeClass=''
+                onClick={toggleNav}
+                >Projects</Link></li>     
+        </motion.div>
+            )}
+    </AnimatePresence>
+
+       </div>
     </>);
  }
 

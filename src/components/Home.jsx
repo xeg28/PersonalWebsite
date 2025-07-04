@@ -1,18 +1,29 @@
+import {useState} from 'react';
 import '../index.css';
 import '../css/home.css';
-
+import { motion, AnimatePresence } from "framer-motion";
 
 
 function Home() {
-
+  const [showCopyMessage, setShowCopyMessage] = useState(false);
   const handleMore = () => {
     const moreDiv = document.getElementById("more-about");
     console.log(moreDiv);
     moreDiv.classList.toggle("show-text");
   }
 
+  const copyEmail = () => {
+    navigator.clipboard.writeText("eg2895@gmail.com").then(() => {
+      setShowCopyMessage(true);
+
+      setTimeout(() => {
+        setShowCopyMessage(false);
+      }, 2500)
+  });
+  }
+
   return (
-    <div id="home">
+    <div class="section" id="home">
       <div id="about">
         <div id="about-text">
           <div className="monospace fs-700" id="name">Emmanuel Gonzalez</div>
@@ -52,14 +63,36 @@ function Home() {
           </div>
         </div>
         <div className="links">
-          <button id="resume-btn">Resume
-            <img src="svg/doc-download.svg" alt="" />
+          <a id="resume-btn" href="https://docs.google.com/document/d/1a-rLQc_nsyZ85JaXSYLviFeQ45Sbbyy5frLvyy8ehso/export?format=pdf" download>Resume
+            <img src="svg/doc-download.svg" alt=""/>
+          </a>
+          <a className="github icon" href='https://github.com/xeg28' target="_blank" title="GitHub">
+            <img src="svg/github.svg" alt="" />
+          </a>
+          <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank" title="LinkedIn">
+          <img src="svg/linkedin.svg" alt="" />
+          </a>
+          <button className="email icon" onClick={copyEmail} title="Copy Email">
+            <img src="images/email.png" alt="" />
           </button>
-          <a className="github icon" href='https://github.com/xeg28' target="_blank"></a>
-          <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank"></a>
         </div>
       </div>
-
+      <AnimatePresence>
+        {showCopyMessage && (
+            <motion.div 
+            class="copy-message"
+            initial={{bottom: "-10%", left:"50%", opacity: 1}}
+            animate={{bottom: "5%", left:"50%"}}
+            exit={{bottom: "-10%", left:"50%", opacity: 0}}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            style={{ overflow: "hidden" }}
+          >
+            <img src="svg/copy.svg" alt="" />
+            Email copied
+          </motion.div>
+          )
+        }
+      </AnimatePresence>
     </div>
   );
 }
