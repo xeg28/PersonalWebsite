@@ -1,25 +1,46 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../index.css';
 import '../css/home.css';
 import { motion, AnimatePresence } from "framer-motion";
 
 
+function useImagePreload(src) {
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = src;
+  }, [src]);
+}
+
 function Home() {
   const [showCopyMessage, setShowCopyMessage] = useState(false);
+
+  useImagePreload("/images/headshot.webp");
   const handleMore = () => {
     const moreDiv = document.getElementById("more-about");
-    console.log(moreDiv);
     moreDiv.classList.toggle("show-text");
   }
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("eg2895@gmail.com").then(() => {
-      setShowCopyMessage(true);
-
-      setTimeout(() => {
-        setShowCopyMessage(false);
-      }, 2500)
-  });
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText("eg2895@gmail.com").then(() => {
+        setShowCopyMessage(true);
+        setTimeout(() => setShowCopyMessage(false), 2500);
+      });
+    } else {
+      // Fallback for older browsers or insecure context
+      const textArea = document.createElement("textarea");
+      textArea.value = "eg2895@gmail.com";
+      textArea.style.position = "fixed"; // Prevent scrolling to bottom
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        alert('Failed to copy email');
+      }
+      document.body.removeChild(textArea);
+    }
   }
 
   return (

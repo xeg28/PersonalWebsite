@@ -1,6 +1,6 @@
 #home {
     margin-top: 1rem;
-    width: 750px;
+    width: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
     column-gap: 3rem;
@@ -17,12 +17,6 @@
 
 #name {
     line-height: normal;
-}
-
-@media (max-width: 830px) {
-    #home {
-        width: 90vw;
-    }
 }
 
 #more-text {
@@ -159,6 +153,7 @@
     width: 30px;
     filter: var(--image-filter);
 }
+
 
 .copy-message {
     position: fixed;

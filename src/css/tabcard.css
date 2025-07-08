@@ -1,0 +1,96 @@
+
+.tabcard {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 100%;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 9px;
+}
+
+.tab-button {
+  height: 30px;
+  font-size: var(--fs-400);
+  font-family: monospace;
+  color: var(--text-primary);
+  width: 50%;
+  padding: 2px 5px;
+  outline: none;
+  border:none;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+}
+.tab-button:hover {
+  border: none;
+  outline: none;
+}
+
+.tab-button.active {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.tab-button:focus, .tab-button:focus-visible {
+  outline: none;
+}
+
+.vertical-line {
+  position: absolute;
+  min-width: none;
+  left: 40px;
+  top: 0px;
+  width: 0px;
+  height: 100%;
+  border-left: 2px solid var(--secondary-color);
+}
+
+.tabcard-content {
+  position: relative;
+  border: 2px solid var(--secondary-color);
+  border-radius: 9px;
+  padding: 10px 0px;
+}
+
+.tab-entry {
+  display: flex;
+  justify-content: start;
+  gap: .5rem;
+}
+
+.entry-text {
+  text-align: start;
+  font-size: var(--fs-300);
+  color: var(--text-primary);
+  font-family: monospace;
+}
+
+
+.entry-title {
+  font-size: calc(var(--fs-300) + 2px);
+  font-weight: bolder;
+  color: var(--font-color)
+}
+
+.entry-list li{
+  padding: 2px 0 0 5px
+}
+.entry-list li span{
+  position: relative;
+  left: -5px;
+}
+.tab-entry img {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+  margin-left: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  border: 2px solid var(--secondary-color);
+}

@@ -6,7 +6,7 @@
   --nav-background: #03060ebe;
 }
 :root.light {
-	--nav-background: #ffffffbe;
+	--nav-background: rgb(230, 230, 230, .75);
 }
 
 
@@ -209,6 +209,7 @@ nav > .nav-icon {
 	flex-direction: column;
 	padding-bottom: 50px;
 	z-index: 2;
+	gap: 1rem;
 }
 
 .mobile-nav li {
@@ -235,6 +236,10 @@ nav > .nav-icon {
 	}
 	.nav-btn {
 		display:block;
+	}
+
+	.nav-links a {
+		font-size: var(--fs-500);
 	}
 }
 

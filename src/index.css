@@ -5,9 +5,10 @@
 
   color-scheme: light dark;
   --font-color: rgba(255, 255, 255);
-  --border-color: #A4A4A4;
+  --border-color: #585858;
   --text-primary: #a8a8a8;
   background-color: #03060e;
+  --background-color: #03060e;
   --secondary-color: #1b1b1b;
   --image-filter: invert(1);
   --image-filter-secondary: invert(1);
@@ -23,13 +24,15 @@
   --fs-600: clamp(1rem, 1em + 1vw, 2rem);
   --fs-500: clamp(0.875rem, 0.7944rem + 0.4301vw, 1.375rem);
   --fs-400: clamp(.8rem, .5em + .5vw, 1rem);
+  --fs-300: clamp(0.625rem, 0.5746rem + 0.2688vw, 0.9375rem);
 }
 
 :root.dark {
   --font-color: rgba(255, 255, 255);
-  --border-color: #A4A4A4;
+  --border-color: #8a8a8a;
   --text-primary: #a8a8a8;
   background-color: #03060e;
+  --background-color: #03060e;
   --secondary-color: #1b1b1b;
   --image-filter: invert(1);
     --image-filter-secondary: invert(1);
@@ -39,7 +42,8 @@
   --font-color: black;
   --border-color: #7f7f7f;
   --text-primary: #232323;
-  background-color: white;
+  background-color: rgb(230, 230, 230);
+  --background-color: rgb(230, 230, 230);
   --secondary-color: #afafaf;
   --image-filter: invert(.3);
   --image-filter-secondary: invert(0);
@@ -80,10 +84,17 @@
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 3.5rem;
+  width: 750px;
   overflow-x:hidden;
+}
+
+@media (max-width: 830px) {
+  .container {
+    width: 90vw;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -148,7 +159,6 @@ body {
   height: fit-content;
   border-radius: 2vw;
   padding: 2em;
-  margin: 3.5rem 0;
   opacity: 0;
   filter: blur(5px);
   transition: transform 500ms, opacity 500ms;
