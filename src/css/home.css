@@ -110,23 +110,6 @@
     outline: 4px auto var(--border-color);
 }
 
-#more-about {
-    display: grid;
-    grid-template-rows: 0fr;
-    min-height: 0px;
-    transition: grid-template-rows 200ms linear;
-}
-
-#more-about div{
-    overflow: hidden;
-    margin-bottom: 10px;
-    text-align: start;
-}
-
-.show-text {
-    grid-template-rows: 1fr !important;
-}
-
 #resume-btn img {
     height: calc(var(--fs-400) + 5px);
     width: calc(var(--fs-400) + 5px);

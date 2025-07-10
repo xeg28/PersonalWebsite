@@ -60,8 +60,8 @@ function Home() {
       </div>
 
       <div>
-        <div className="show-more-link" onClick={handleMore}><strong>More about me</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" /></div>
-        <div id="more-about" >
+        <button className="show-more-link" onClick={handleMore}><strong>More about me</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" /></button>
+        <div className="show-more-wrapper" id="more-about" >
           <div id="more-text">
             <span className="paragraph">
               I am an alumnus of California State University, Los Angeles, with a Bachelor's degree in Computer Science. As a kid,

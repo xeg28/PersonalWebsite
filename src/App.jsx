@@ -1,35 +1,10 @@
-// import {React} from 'react';
-// import Navbar from './components/Navbar';
-
-// import Home from './components/Home';
-// import Experience from './components/Experience';
-// import Education from './components/Education'
-// import Projects from './components/Projects';
-
-// function App() {
-//     document.title = "Emmanuel Gonzalez";
-//     return (      
-//         <>
-//             <Navbar/>
-//             <div className="container">
-//                 <Home/>
-//                 <Education/>
-//                 <Experience/>
-//                 <Projects/>
-//             </div>
-//         </>
-//     );
-//  }
-
-// export default App;
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Tabcard from './components/TabCard/Tabcard';
-import Projects from './components/Projects';
+import Projects from './components/Projects/Projects';
 
 
 
@@ -90,9 +65,7 @@ function App() {
                     <Navbar />
                     <div className="container">
                         <Home />
-                        <Tabcard/>
-                        <Education />
-                        <Experience />
+                        <Tabcard />
                         <Projects />
                     </div>
                 </>

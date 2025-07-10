@@ -20,11 +20,11 @@
   -webkit-text-size-adjust: 100%;
 
   --fs-xl: clamp(1rem, 1.3em + 2vw, 5rem);
-  --fs-700: clamp(1.5rem, 1.2379rem + 1.3978vw, 3.125rem);
+  --fs-700: clamp(1.5rem, 1.2883rem + 1.129vw, 2.8125rem);
   --fs-600: clamp(1rem, 1em + 1vw, 2rem);
   --fs-500: clamp(0.875rem, 0.7944rem + 0.4301vw, 1.375rem);
-  --fs-400: clamp(.8rem, .5em + .5vw, 1rem);
-  --fs-300: clamp(0.625rem, 0.5746rem + 0.2688vw, 0.9375rem);
+  --fs-400: clamp(0.875rem, 0.8548rem + 0.1075vw, 1rem);
+  --fs-300: clamp(0.75rem, 0.7349rem + 0.0806vw, 0.84375rem);
 }
 
 :root.dark {
@@ -58,6 +58,10 @@
   color: var(--text-primary) !important;
 }
 
+.fs-300 {
+  font-size: var(--fs-300) !important;
+}
+
 .fs-700 {
   font-size: var(--fs-700) !important;
 }
@@ -89,6 +93,7 @@
   gap: 3.5rem;
   width: 750px;
   overflow-x:hidden;
+  padding-bottom: 4rem;
 }
 
 @media (max-width: 830px) {
@@ -117,6 +122,10 @@ hr {
   border-radius: 15rem;
 }
 
+h2 {
+  color: var(--font-color);
+}
+
 a {
   font-weight: 500;
   font-size: 1rem;
@@ -143,6 +152,19 @@ body {
   display: flex;
   align-items: center;
   user-select: none;
+  padding: 0 0 2px 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  color: var(--font-color);
+}
+
+.show-more-link:focus {
+  outline: none;
+}
+
+.show-more-link:focus-visible {
+  box-shadow: 0 2px 0 0 var(--border-color);
 }
 
 .show-more-link img{
@@ -151,6 +173,23 @@ body {
   filter: var(--image-filter-secondary);
   margin-top: 2px;
   margin-left: 2px;
+}
+
+.show-more-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  min-height: 0px;
+  transition: grid-template-rows 200ms linear;
+}
+
+.show-more-wrapper > :first-child{
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+.show-more-wrapper.show-text {
+    grid-template-rows: 1fr !important;
 }
 
 .card {
@@ -200,20 +239,6 @@ body {
   flex-direction: column;
   align-items: start;
   text-align: left;
-}
-
-.technologies {
-  padding-top:10px;
-  gap:1rem;
-}
-
-.technologies img{
-  max-height: 50px;
-  max-width: 70px;
-}
-
-.technologies a {
-  max-height:50px;
 }
 
 .row {

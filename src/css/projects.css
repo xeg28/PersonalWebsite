@@ -1,3 +1,83 @@
+:root.dark {
+    --inverted-img-filter: invert(0);
+}
+
+:root.light {
+    --inverted-img-filter: invert(1);
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+.project-card {
+    border: 2px solid var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    font-family: monospace;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-primary);
+    font-size: var(--fs-300);
+    line-height: 1rem;
+}
+
+.project-content > img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.project-title {
+    color: var(--font-color);
+    font-size: calc(var(--fs-300) + 2px);
+    font-weight: bolder;
+    line-height: 1.5rem;
+}
+
+.technologies {
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+    margin-bottom: .5rem;
+}
+
+.technologies img {
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+}
+
+.project-btn {
+    background-color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color);
+    width: fit-content;
+    padding: 3px 7px 3px 7px;
+    border-radius: 5px;
+    font-size: var(--fs-300);
+}
+
+.project-btn:hover {
+    background-color: var(--font-color);
+}
+
+.project-btn img {
+    height: calc(var(--fs-300));
+    aspect-ratio: 1/1;
+    filter: var(--inverted-img-filter);
+    object-fit:contain;
+    margin-right: .5em;
+}
+
 #projects-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -8,12 +88,6 @@
     text-indent: -1.3em;
     padding-left: 2em;
 }
-
-.technologies {
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 
 .img-container {
     display: flex;

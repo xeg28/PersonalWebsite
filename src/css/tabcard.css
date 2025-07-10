@@ -69,6 +69,7 @@
   font-size: var(--fs-300);
   color: var(--text-primary);
   font-family: monospace;
+  padding-right: 2rem;
 }
 
 
@@ -78,18 +79,25 @@
   color: var(--font-color)
 }
 
-.entry-list li{
-  padding: 2px 0 0 5px
+.entry-list {
+  list-style-position: outside;
+  padding-left: 2em; /* or adjust as needed */
+  margin: 0;
 }
-.entry-list li span{
-  position: relative;
-  left: -5px;
+
+.entry-list li {
+  line-height: 1.25em;
 }
-.tab-entry img {
-  height: 30px;
-  width: 30px;
+
+.entry-list li::marker {
+  font-size: 1.5em;
+}
+
+.tab-entry > img {
+  height: 36px;
+  width: 36px;
   object-fit: contain;
-  margin-left: 25px;
+  margin-left: 22px;
   border-radius: 50%;
   z-index: 1;
   border: 2px solid var(--secondary-color);
