@@ -44,7 +44,7 @@ function Home() {
   }
 
   return (
-    <div class="section" id="home">
+    <div className="section" id="home">
       <div id="about">
         <div id="about-text">
           <div className="monospace fs-700" id="name">Emmanuel Gonzalez</div>
@@ -101,7 +101,7 @@ function Home() {
       <AnimatePresence>
         {showCopyMessage && (
             <motion.div 
-            class="copy-message"
+            className="copy-message"
             initial={{bottom: "-10%", left:"50%", opacity: 1}}
             animate={{bottom: "5%", left:"50%"}}
             exit={{bottom: "-10%", left:"50%", opacity: 0}}

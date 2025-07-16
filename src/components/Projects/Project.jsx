@@ -189,11 +189,20 @@
                       'csharp':{name: 'C#', url:'https://learn.microsoft.com/en-us/dotnet/csharp/'}
                       };    
 import '../../css/projects.css';
-
+import {useState} from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 function Project(props) {
+  const [showPopup, setShowPopup] = useState(false);
+  const handlePopup = (event) => {
+    const body = document.querySelector("body");
+    body.classList.toggle("no-scroll");
+    setShowPopup((prev) => {
+      return !prev;
+    });
+  }
 
   return (
-    <div class="project-card">
+    <div className="project-card">
       <div className="project-content">
         <img src={props.img} alt="" />
         <div>
@@ -203,8 +212,8 @@ function Project(props) {
         <div>
           {props.technologies && (
             <div className="technologies">
-              {props.technologies.map((technology) => (
-                <a href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
+              {props.technologies.map((technology, index) => (
+                <a key={"technology_" + index} href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
                   <img src={`svg/${technology}.svg`} alt={technologies[technology].name} />
                 </a>
               ))}
@@ -218,8 +227,40 @@ function Project(props) {
                 Website
               </a>)}
           </div>
+           <button className="show-more-link" onClick={handlePopup}><strong>Learn More</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" /></button>
         </div>
       </div>
+      <AnimatePresence>
+        {showPopup && (
+        <motion.div 
+        initial={{opacity: 0, backdropFilter: "blur(0px)"}}
+        animate={{opacity: 1, backdropFilter: "blur(2px)"}}
+        transition={{ duration: 0.15, ease: "easeOut" }}
+        className="project-popup">
+          <div className="">
+            <div className="title-color fs-600 fw-600 relative">
+              {props.title}
+              <button className='close-popup' onClick={handlePopup}>
+              <img src="/svg/close.svg" alt="" />
+            </button>
+            </div>
+            <div className='scroll custom-scroll'>
+              <div className="mb-1">{props.detail}</div>
+              <div>
+                <div className="title-color fs-400 fw-600">Features</div>
+                  <ul className="project-features">
+                    {props.features.map((feature, index) => (
+                      <li key={"project-feature-" + index}>{feature}</li>
+                    ))}
+                  </ul>
+                  <div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -175,14 +175,26 @@ function Projects() {
       <h2 className="monospace fs-600">Projects</h2>
       <div className="projects-container">
         <Project 
+          id="mediaProject"
           img="/images/mediaProject(home).webp"
           title="Media Management System"
           description="A site built using CodeIgniter (PHP) that
           allows users to upload media files for storage."
+          detail="This project was originally a group project for my software engineering course 
+          but I completely refactored the project, added new features, and deployed it. This project
+          allows you to upload image, video, and audio files to the web for storage. This website also 
+          allows you to view the files you have uploaded."
+          features={["You can register an account", "The files uploaded can be viewed in the site.", 
+                    "Allows users to upload image, video, and audio files to the site. These files are only visible the user that uploaded the file.",
+                    "Users can share files to other registered users.", "Users can download any file they uploaded.", 
+                    "There is a search feature allowing users to search for files by name.",
+                    "Users can rename files, add a description, and delete files.", 
+                    "Users can delete and share multiple files by right clicking them and selecting them."  ]}
           technologies={["codeigniter", "php", "js", "css", "bootstrap"]}
           website="https://xeg28.serv00.net/"
           />
         <Project 
+          id="temp"
           img="" 
           title="Temp"
           description=""/>

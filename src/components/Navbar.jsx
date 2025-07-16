@@ -168,7 +168,7 @@ function Navbar() {
                     </div>)
 
                     }
-                <button class="theme-toggle" onClick={toggleTheme}>
+                <button className="theme-toggle" onClick={toggleTheme}>
                     {theme == "dark" ? 
                     (<img src="svg/light.svg" alt="" />) :
                     (<img src="svg/dark.svg" alt="" />) }

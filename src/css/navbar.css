@@ -1,14 +1,3 @@
-:root {
-	--nav-background: #03060ebe;
-}
-
-:root.dark {
-  --nav-background: #03060ebe;
-}
-:root.light {
-	--nav-background: rgb(230, 230, 230, .75);
-}
-
 
 
 .btn-group {

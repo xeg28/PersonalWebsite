@@ -8,15 +8,15 @@ function Tabentry(props) {
   }
 
   return (
-    <div class="tab-entry" id={props.id}>
+    <div className="tab-entry" id={props.id}>
         <img src={props.img} alt="" />
         <div className="entry-text">
-          <div class="entry-date">{props.date}</div>
-          <div class="entry-title">{props.title}</div>
-          <div class="entry-desc">{props.desc}</div>
-          <ul class="entry-list">
+          <div className="entry-date">{props.date}</div>
+          <div className="entry-title">{props.title}</div>
+          <div className="entry-desc">{props.desc}</div>
+          <ul className="entry-list">
             {props.list.map((item, index) => (
-              <li>{item}</li>
+              <li key={props.id + "_bullet_"+index}>{item}</li>
             ))}
           </ul>
          
@@ -26,9 +26,9 @@ function Tabentry(props) {
                 <strong>{props.moreTitle}</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" />
                 </button>
               <div className="show-more-wrapper" id={props.moreBtnId}>
-                <ul class="entry-list">
-                  {props.more.map((item) => (
-                  <li>{item}</li>
+                <ul className="entry-list">
+                  {props.more.map((item, index) => (
+                  <li key={props.id + "_bullet_more_"+index}>{item}</li>
                   ))}
                 </ul>
               </div>

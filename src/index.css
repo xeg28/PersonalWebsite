@@ -12,6 +12,7 @@
   --secondary-color: #1b1b1b;
   --image-filter: invert(1);
   --image-filter-secondary: invert(1);
+  --nav-background: #03060ebe;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,13 +30,14 @@
 
 :root.dark {
   --font-color: rgba(255, 255, 255);
-  --border-color: #8a8a8a;
+  --border-color: #1b1b1b;
   --text-primary: #a8a8a8;
   background-color: #03060e;
   --background-color: #03060e;
   --secondary-color: #1b1b1b;
   --image-filter: invert(1);
-    --image-filter-secondary: invert(1);
+  --image-filter-secondary: invert(1);
+  --nav-background: #03060ebe;  
 }
 
 :root.light {
@@ -47,6 +49,7 @@
   --secondary-color: #afafaf;
   --image-filter: invert(.3);
   --image-filter-secondary: invert(0);
+  --nav-background: rgb(230, 230, 230, .75);
 }
 
 * {
@@ -56,6 +59,10 @@
 
 .text-primary {
   color: var(--text-primary) !important;
+}
+
+.title-color {
+  color: var(--font-color) !important; 
 }
 
 .fs-300 {
@@ -86,6 +93,19 @@
   font-weight: 600 !important;
 }
 
+.scroll {
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.relative {
+  position: relative !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -103,15 +123,27 @@
 }
 
 body::-webkit-scrollbar {
-  width: 0.5vw;
+  width: 7.5px;
 }
 
 body::-webkit-scrollbar-track {
-  background: hsl(0 0% 100%/0.1);
+    background: var(--secondary-color);
 }
 
 body::-webkit-scrollbar-thumb {
-  background:#5bb9fc;
+  background: var(--text-primary);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
 }
 
 hr {
