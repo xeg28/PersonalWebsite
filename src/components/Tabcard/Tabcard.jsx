@@ -15,7 +15,7 @@ function Tabcard() {
   }
 
   return (
-    <div className="tabcard">
+    <div className="tabcard section" id="experience">
       <div className="tabs">
         <button className={tab==="education" ? "tab-button active" : "tab-button"} id="education-tab" onClick={clickTab}>Education</button>
         <button className={tab==="work" ? "tab-button active" : "tab-button"}  id="work-tab" onClick={clickTab}>Work</button>

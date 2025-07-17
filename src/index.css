@@ -93,8 +93,15 @@
   font-weight: 600 !important;
 }
 
+.flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem;
+}
+
 .scroll {
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 20px;
 }
 
@@ -110,7 +117,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 2.5rem;
   width: 750px;
   overflow-x:hidden;
   padding-bottom: 4rem;
@@ -136,6 +143,13 @@ body::-webkit-scrollbar-thumb {
 
 .custom-scroll::-webkit-scrollbar {
   width: 7.5px;
+}
+
+@media (max-width: 500px) {
+  .custom-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
 }
 
 .custom-scroll::-webkit-scrollbar-track {

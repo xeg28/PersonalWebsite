@@ -13,6 +13,7 @@
   padding: 4px;
   background-color: var(--secondary-color);
   border-radius: 9px;
+  margin-top: 1rem;
 }
 
 .tab-button {

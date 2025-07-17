@@ -190,14 +190,63 @@ function Projects() {
                     "There is a search feature allowing users to search for files by name.",
                     "Users can rename files, add a description, and delete files.", 
                     "Users can delete and share multiple files by right clicking them and selecting them."  ]}
-          technologies={["codeigniter", "php", "js", "css", "bootstrap"]}
+          technologies={["codeigniter", "php", "jquery", "mysql", "dropzonejs","css", "bootstrap"]}
           website="https://xeg28.serv00.net/"
+          github="https://github.com/xeg28/Media-Management-System"
           />
         <Project 
-          id="temp"
-          img="" 
-          title="Temp"
-          description=""/>
+          id="overwrapped"
+          img="/images/OverwrappedGame.webp" 
+          title="Overwrapped"
+          description="A local co-op game that has two levels. I co-created this game 
+          with two other developers for a project in my 3D Game Development course."
+          detail="I created this game along with two other group members for my 3D Game Development course. 
+          This was a semester long project where we had to create a local co-op game in unity. Our game took inspiration
+          from a game called Overcooked but it is Christmas themed."
+          features={["Supports two keyboard players and multiple controller players.",
+                    "Players can sprint, jump, throw items, drop items, and work on items.", 
+                    "Has a user interface that provides information about each player.", 
+                    "In later levels, there's obstacles like falling snowballs and icicles."
+                  ]}
+          technologies={["unity", "csharp"]}
+          play="https://xeg28.itch.io/overwrapped"
+          />
+
+          <Project 
+          id="personalwebsite"
+          img="/images/PersonalWebsite.webp" 
+          title="Personal Website"
+          description="A personal website I created using React that showcases my experience and projects that I've worked on."
+          detail="I created this website to provide information about myself such as my interests, education,
+          experience, and projects. I decided to create this site with the React Framework because I wanted to learn 
+          how to use a popular frontend framework."
+          features={["Includes a navbar that will scroll to certain sections of the website.", 
+                      "The website is responsive so it can be used on mobile.",
+                      "Contains sections for my education, work, and projects", 
+                     ]}
+          technologies={["react", "js", "css"]}
+          website="https://xeg28.github.io/PersonalWebsite"
+          github="https://github.com/xeg28/PersonalWebsite"
+          />
+
+          <Project 
+          id="ponggame"
+          img="/images/PongGame(Gameplay).webp" 
+          title="Pong Game"
+          description="A pong game that allows users to play against another player locally or against a bot."
+          detail="I recreated the Pong Game using JavaScript, HTML, and CSS. I decided to 
+          create this project to help me gain experience with frontend development."
+          features={["Users can play against another player or a bot.",
+                    "There is an options menu where users can change the speed of the game, the size of the paddle, and the difficulty of the bot.",
+                    "Users can choose between dark and light theme.",
+                    "Users can pause the game.",
+                    "All of your options are saved in your browser."
+                    ]}
+          technologies={["html", "css", "js"]}
+          play="https://xeg28.github.io/PongGame"
+          github="https://github.com/xeg28/PongGame"
+          />
+
       </div>
       <h2 className="monospace fs-600">In Progress</h2>
       <div className="projects-container">

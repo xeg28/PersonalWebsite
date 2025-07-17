@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {Link} from 'react-scroll';
-// import navIconDark from '../assets/logo-dark.png';
 import '../css/navbar.css'
 
 
@@ -18,11 +17,11 @@ const observer = new IntersectionObserver((entries) => {
 function activateLinks() {
     let top = window.scrollY;
     let links = document.querySelectorAll('.route');
-    let cards = document.querySelectorAll('.section');
-    cards.forEach(card => {
-        let offset = card.offsetTop-120;
-        let height = card.offsetHeight;
-        let id = card.id;
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        let offset = section.offsetTop-120;
+        let height = section.offsetHeight;
+        let id = section.id;
     
         if(top >= offset && top < offset + height) {
             links.forEach(link => {
@@ -92,7 +91,7 @@ function Navbar() {
     }, [theme])
 
     useEffect(() => {
-        const updateOffset = (newOffset) => {
+        const updateOffset = () => {
             if(window.innerWidth <= 700) {
                 setNavOffset(60);
             } else {
@@ -118,6 +117,7 @@ function Navbar() {
 
         return () => {
             window.removeEventListener('resize', updateOffset);
+            window.removeEventListener('scroll', activateLinks);
         };
     }, []);
 
@@ -140,18 +140,9 @@ function Navbar() {
                             >About</Link></li>
                         <li><Link 
                         className={ 'route'} 
-                            id="lk-education"
-                            to={"education"}
-                            smooth={true} 
-                            offset={-navOffset}
-                            duration={500}
-                            activeClass=''
-                            >Education</Link></li>
-                        <li><Link 
-                            className={'route'} 
                             id="lk-experience"
-                            to="experience"
-                            smooth={true}
+                            to={"experience"}
+                            smooth={true} 
                             offset={-navOffset}
                             duration={500}
                             activeClass=''

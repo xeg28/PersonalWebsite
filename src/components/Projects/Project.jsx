@@ -186,13 +186,55 @@
                       'react':{name:'React', url:'https://react.dev/learn'}, 
                       'javafx':{name:'JavaFX', url:'https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784'},
                       'unity':{name:'Unity', url:'https://docs.unity.com/'},
-                      'csharp':{name: 'C#', url:'https://learn.microsoft.com/en-us/dotnet/csharp/'}
+                      'csharp':{name: 'C#', url:'https://learn.microsoft.com/en-us/dotnet/csharp/'},
+                      'mysql':{name: "MySQL", url:'https://dev.mysql.com/doc/'}
                       };    
 import '../../css/projects.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 function Project(props) {
   const [showPopup, setShowPopup] = useState(false);
+  const [slideAnimation, setSlideAnimation] = useState({});
+  useEffect(() => {
+    const handleResize = () => {
+      const technologies = document.getElementById(props.id + "_technologies");
+      if(!technologies) return;
+      const parent = technologies.parentElement;
+      
+      if(parent && parent.offsetWidth < technologies.scrollWidth) {
+        console.log("parent: " + parent.offsetWidth);
+        console.log("child: " + technologies.scrollWidth);
+        const diff = technologies.scrollWidth - parent.offsetWidth;
+        console.log(diff);
+        const dur = (diff/100) * 5;
+        setSlideAnimation({
+          initial: { x: 0 },
+          animate: { x: [0, -diff] },
+          transition: { 
+            duration: dur, 
+            ease: "linear",
+            repeat: Infinity, 
+            repeatType: "mirror",
+            repeatDelay: 2,
+          }
+        });
+      }
+      else {
+        setSlideAnimation({
+          initial: { x: 0 },
+          animate: { x: 0 },
+          transition: { }
+        });
+      }
+
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, [])
+
   const handlePopup = (event) => {
     const body = document.querySelector("body");
     body.classList.toggle("no-scroll");
@@ -211,21 +253,37 @@ function Project(props) {
         </div>
         <div>
           {props.technologies && (
-            <div className="technologies">
-              {props.technologies.map((technology, index) => (
-                <a key={"technology_" + index} href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
-                  <img src={`svg/${technology}.svg`} alt={technologies[technology].name} />
-                </a>
-              ))}
-            </div>
+            <AnimatePresence>
+              <div className="sliding-track">
+                <motion.div {...slideAnimation}
+                className="technologies" id={props.id + "_technologies"}>
+                  {props.technologies.map((technology, index) => (
+                    <a key={"technology_" + index} href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
+                      <img src={`svg/${technology}.svg`} alt={technologies[technology].name} />
+                    </a>
+                  ))}
+                </motion.div>
+              </div>
+            </AnimatePresence>
           )}
           
           <div className='project-links'>
             {props.website && 
               (<a className='project-btn' href={props.website} target="_blank">
                 <img src="/svg/website.svg" alt=""/>
-                Website
+                <span>Website</span>
               </a>)}
+              {props.play && 
+              (<a className='project-btn' href={props.play} target="_blank">
+                <img src="/svg/play.svg" alt=""/>
+                <span>Play</span>
+              </a>)}
+              {props.github && 
+              (<a className='project-btn' href={props.github} target="_blank">
+                <img src="/svg/github.svg" alt=""/>
+                <span>GitHub</span>
+              </a>)}
+              
           </div>
            <button className="show-more-link" onClick={handlePopup}><strong>Learn More</strong> <img src="svg/diagonal-arrow-right-down.svg" alt="" /></button>
         </div>
@@ -237,24 +295,51 @@ function Project(props) {
         animate={{opacity: 1, backdropFilter: "blur(2px)"}}
         transition={{ duration: 0.15, ease: "easeOut" }}
         className="project-popup">
-          <div className="">
+          <div className="relative">
             <div className="title-color fs-600 fw-600 relative">
               {props.title}
-              <button className='close-popup' onClick={handlePopup}>
+            </div>
+            <button className='close-popup' onClick={handlePopup}>
               <img src="/svg/close.svg" alt="" />
             </button>
-            </div>
             <div className='scroll custom-scroll'>
               <div className="mb-1">{props.detail}</div>
-              <div>
+              <div className="mb-1">
                 <div className="title-color fs-400 fw-600">Features</div>
                   <ul className="project-features">
                     {props.features.map((feature, index) => (
                       <li key={"project-feature-" + index}>{feature}</li>
                     ))}
                   </ul>
-                  <div>
-                  </div>
+              </div>
+              <div className="title-color fs-400 fw-600">Technologies</div>
+              <div className="technologies-lg">
+                {props.technologies.map((technology, index) => (
+                <a key={"technologylg_" + index} href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
+                  <img src={`svg/${technology}.svg`} alt={technologies[technology].name} />
+                </a>
+              ))}
+              </div>
+              <div className='project-links'>
+                {props.website && (
+                <a className="project-btn-lg" href={props.website} target="_blank">
+                  <img src="svg/website.svg" alt="" />
+                  <span>Website</span>
+                </a>
+                )}
+                {props.play && (
+                <a className="project-btn-lg" href={props.play} target="_blank">
+                  <img src="svg/play.svg" alt="" />
+                  <span>Play</span>
+                </a>
+                )}
+                {props.github && (
+                <a className="project-btn-lg" href={props.github} target="_blank">
+                  <img src="svg/github.svg" alt="" />
+                  <span>GitHub</span>
+                </a>
+                )}
+                
               </div>
             </div>
           </div>
