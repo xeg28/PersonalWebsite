@@ -28,20 +28,13 @@ function activateLinks() {
                 link.classList.remove('active');
             });
             const activeLink = document.getElementById('lk-' + id);
+            const smallActiveLink = document.getElementById('lks-' + id);
             if(activeLink) activeLink.classList.add('active');
+            if(smallActiveLink) smallActiveLink.classList.add('active');
         }
     });
  
 } 
-
-// Dynamically changes the vertical height. This is particularly useful
-// when on mobile because the menu disappears and reappears 
-// when scrolling
-function setVhVariable() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`)
-}
-
 
 function Navbar() {
 
@@ -66,8 +59,13 @@ function Navbar() {
         setShowNav((prevVal) => {
             return !prevVal
         });
-
     }
+
+    useEffect(() => {
+        if(showNav) {
+            activateLinks();
+        }
+    }, [showNav])
 
     useEffect(() => {
         if(theme === "dark") {
@@ -181,7 +179,7 @@ function Navbar() {
         >
         <li><Link 
                 className={'route active'}
-                id="lk-home"
+                id="lks-home"
                 to="home"
                 smooth={true} 
                 offset={-navOffset}
@@ -190,18 +188,8 @@ function Navbar() {
                 onClick={toggleNav}
                 >About</Link></li>
             <li><Link 
-            className={ 'route'} 
-                id="lk-education"
-                to={"education"}
-                smooth={true} 
-                offset={-navOffset}
-                duration={500}
-                activeClass=''
-                onClick={toggleNav}
-                >Education</Link></li>
-            <li><Link 
                 className={'route'} 
-                id="lk-experience"
+                id="lks-experience"
                 to="experience"
                 smooth={true}
                 offset={-navOffset}
@@ -211,7 +199,7 @@ function Navbar() {
                 >Experience</Link></li>
             <li>
                 <Link className={ 'route'} 
-                id="lk-projects"
+                id="lks-projects"
                 to="projects"
                 smooth={true}
                 offset={-navOffset}

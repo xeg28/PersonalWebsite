@@ -202,10 +202,7 @@ function Project(props) {
       const parent = technologies.parentElement;
       
       if(parent && parent.offsetWidth < technologies.scrollWidth) {
-        console.log("parent: " + parent.offsetWidth);
-        console.log("child: " + technologies.scrollWidth);
         const diff = technologies.scrollWidth - parent.offsetWidth;
-        console.log(diff);
         const dur = (diff/100) * 5;
         setSlideAnimation({
           initial: { x: 0 },
@@ -246,8 +243,8 @@ function Project(props) {
   return (
     <div className="project-card">
       <div className="project-content">
-        <img src={props.img} alt="" />
-        <div>
+        <div className="project-img-container">
+          <img src={props.img} alt="" />
           <div className='project-title'>{props.title}</div>
           <div>{props.description}</div>
         </div>

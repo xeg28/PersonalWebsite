@@ -247,6 +247,45 @@ function Projects() {
           github="https://github.com/xeg28/PongGame"
           />
 
+          <Project 
+          id="snakegame"
+          img="/images/SnakeGameplay.webp" 
+          title="Snake Game"
+          description="A snake game that allows players to speed up and slow down the game."
+          detail="I recreated the Snake game using JavaScript, HTML, and CSS. I decided to 
+          create this project to help me gain experience with frontend development."
+          features={["The game includes screen wrapping which allows the snake to pass through one edge of the screen and reappear on the opposite edge.",
+                    "The game can be paused.",
+                    "The game can be sped up through the menu. The game speeds include slow, fast, and full speed.",
+                    "Your highest score is kept by your browser."
+                    ]}
+          technologies={["html", "css", "js"]}
+          play="https://xeg28.github.io/Snake-Game/"
+          github="https://github.com/xeg28/Snake-Game"
+          />
+
+          <Project 
+          id="typingtest"
+          img="/images/TypingTest.webp" 
+          title="Typing Speed Test"
+          description="A typing test GUI made in javafx that keeps track of user progress."
+          detail="I created a typing speed test using JavaFX and CSS. I created this application
+          because I liked testing my typing speed and I wanted to gain experience with 
+          Java and GUI development."
+          features={["During a test, the user can see their WPM update in a label.",
+                  "If the user types the text prompt correctly, it is highlighted in green.",
+                  "If the user makes a mistake, the mistake is highlighted in red.",
+                  "Users can use custom texts that are not saved locally.",
+                  "Users can create a quote which are saved locally.",
+                  "The program allows you to create users which tracks the user's progress.",
+                  "The program saves the user's average WPM and highest WPM.",
+                  "The program saves the user's top five tests for every quote.",
+                  "This program also has a leaderboard for every quote which shows the fastest users for a quote."
+        ]}
+          technologies={["java", "javafx"]}
+          github="https://github.com/xeg28/Typingtest"
+          />
+
       </div>
       <h2 className="monospace fs-600">In Progress</h2>
       <div className="projects-container">

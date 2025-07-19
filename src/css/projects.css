@@ -26,9 +26,11 @@
     color: var(--text-primary);
     font-size: var(--fs-300);
     line-height: 1rem;
+    justify-content: space-between;
+    height: 100%;
 }
 
-.project-content > img {
+.project-img-container img {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
