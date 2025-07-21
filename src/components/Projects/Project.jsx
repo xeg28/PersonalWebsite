@@ -270,17 +270,17 @@ function Project(props) {
           <div className='project-links'>
             {props.website && 
               (<a className='project-btn' href={props.website} target="_blank">
-                <img src="/svg/website.svg" alt=""/>
+                <img src="svg/website.svg" alt=""/>
                 <span>Website</span>
               </a>)}
               {props.play && 
               (<a className='project-btn' href={props.play} target="_blank">
-                <img src="/svg/play.svg" alt=""/>
+                <img src="svg/play.svg" alt=""/>
                 <span>Play</span>
               </a>)}
               {props.github && 
               (<a className='project-btn' href={props.github} target="_blank">
-                <img src="/svg/github.svg" alt=""/>
+                <img src="svg/github.svg" alt=""/>
                 <span>GitHub</span>
               </a>)}
               
@@ -300,7 +300,7 @@ function Project(props) {
               {props.title}
             </div>
             <button className='close-popup' onClick={handlePopup}>
-              <img src="/svg/close.svg" alt="" />
+              <img src="svg/close.svg" alt="" />
             </button>
             <div className='scroll custom-scroll'>
               <div className="mb-1">{props.detail}</div>

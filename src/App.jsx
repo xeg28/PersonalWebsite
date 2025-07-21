@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Experience from './components/Experience';
-import Education from './components/Education';
 import Tabcard from './components/TabCard/Tabcard';
 import Projects from './components/Projects/Projects';
 

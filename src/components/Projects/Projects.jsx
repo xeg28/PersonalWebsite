@@ -176,7 +176,7 @@ function Projects() {
       <div className="projects-container">
         <Project 
           id="mediaProject"
-          img="/images/mediaProject(home).webp"
+          img="images/mediaProject(home).webp"
           title="Media Management System"
           description="A site built using CodeIgniter (PHP) that
           allows users to upload media files for storage."
@@ -196,7 +196,7 @@ function Projects() {
           />
         <Project 
           id="overwrapped"
-          img="/images/OverwrappedGame.webp" 
+          img="images/OverwrappedGame.webp" 
           title="Overwrapped"
           description="A local co-op game that has two levels. I co-created this game 
           with two other developers for a project in my 3D Game Development course."
@@ -214,7 +214,7 @@ function Projects() {
 
           <Project 
             id="personalwebsite"
-            img="/images/PersonalWebsite.webp" 
+            img="images/PersonalWebsite.webp" 
             title="Personal Website"
             description="A personal website I created using React that showcases my experience and projects that I've worked on."
             detail="I created this website to provide information about myself such as my interests, education,
@@ -231,7 +231,7 @@ function Projects() {
 
           <Project 
             id="ponggame"
-            img="/images/PongGame(Gameplay).webp" 
+            img="images/PongGame(Gameplay).webp" 
             title="Pong Game"
             description="A pong game that allows users to play against another player locally or against a bot."
             detail="I recreated the Pong Game using JavaScript, HTML, and CSS. I decided to 
@@ -249,7 +249,7 @@ function Projects() {
 
           <Project 
             id="snakegame"
-            img="/images/SnakeGameplay.webp" 
+            img="images/SnakeGameplay.webp" 
             title="Snake Game"
             description="A snake game that allows players to speed up and slow down the game."
             detail="I recreated the Snake game using JavaScript, HTML, and CSS. I decided to 
@@ -266,7 +266,7 @@ function Projects() {
 
           <Project 
             id="typingtest"
-            img="/images/TypingTest.webp" 
+            img="images/TypingTest.webp" 
             title="Typing Speed Test"
             description="A typing test GUI made in javafx that keeps track of user progress."
             detail="I created a typing speed test using JavaFX and CSS. I created this application
@@ -292,12 +292,12 @@ function Projects() {
         <Project 
           inProgress
           id="xclone"
-          img="/images/XClone.webp" 
+          img="images/XClone.webp" 
           title="X Clone"
           description="An X clone created with React and asp.net."
           detail="I created an X Clone with React and asp.net to gain more experience with full-stack development.
           I also created this project to learn new technologies like asp.net and TypeScript."
-          features={["Users can register", "Emails are validated", "JWT tokens for user authentication", 
+          features={["Users can register", "Emails are validated", "JWT for user authentication", 
           "Refresh tokens for session management",  "Users can reset their password"
           ]}
           technologies={["aspnet", "csharp", "react", "ts", "sql"]}
