@@ -187,7 +187,10 @@
                       'javafx':{name:'JavaFX', url:'https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784'},
                       'unity':{name:'Unity', url:'https://docs.unity.com/'},
                       'csharp':{name: 'C#', url:'https://learn.microsoft.com/en-us/dotnet/csharp/'},
-                      'mysql':{name: "MySQL", url:'https://dev.mysql.com/doc/'}
+                      'mysql':{name: "MySQL", url:'https://dev.mysql.com/doc/'}, 
+                      'sql':{name: "SQL", url:'https://learn.microsoft.com/en-us/sql/?view=sql-server-ver17'},
+                      'ts':{name:"TypeScript", url:"https://www.typescriptlang.org/docs/"},
+                      "aspnet": {name:"ASP.NET", url:"https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-9.0"}
                       };    
 import '../../css/projects.css';
 import {useEffect, useState} from 'react';
@@ -302,7 +305,7 @@ function Project(props) {
             <div className='scroll custom-scroll'>
               <div className="mb-1">{props.detail}</div>
               <div className="mb-1">
-                <div className="title-color fs-400 fw-600">Features</div>
+                <div className="title-color fs-400 fw-600">Features{props.inProgress && (<span>&nbsp;Completed</span>)} </div>
                   <ul className="project-features">
                     {props.features.map((feature, index) => (
                       <li key={"project-feature-" + index}>{feature}</li>
