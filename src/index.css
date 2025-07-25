@@ -10,6 +10,7 @@
   background-color: #03060e;
   --background-color: #03060e;
   --secondary-color: #1b1b1b;
+  --image-loader: #585858;
   --image-filter: invert(1);
   --image-filter-secondary: invert(1);
   --nav-background: #03060ebe;
@@ -93,6 +94,19 @@
   font-weight: 600 !important;
 }
 
+.above {
+  z-index: 4 !important;
+}
+
+.hidden {
+  display:none;
+}
+
+.visibile {
+  display: initial;
+}
+
+
 .flex-row {
   display: flex !important;
   flex-direction: row !important;
@@ -119,8 +133,56 @@
   flex-direction: column;
   gap: 2.5rem;
   width: 750px;
-  overflow-x:hidden;
   padding-bottom: 4rem;
+}
+
+.loading {
+  animation: imageLoader 1s infinite;
+}
+
+@keyframes imageLoader {
+  0% {
+    background-color: var(--secondary-color);
+  }
+  50% {
+    background-color: var(--image-loader);
+  }
+  100%  {
+    background-color: var(--secondary-color);
+  }
+}
+
+.image-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background-color: var(--secondary-color);
+}
+
+.image-container img {
+  display: block;
+}
+
+.enlarged {
+  position: fixed;
+  background-color: var(--nav-background);
+  backdrop-filter: blur(2px);
+  height: 100dvh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  transition: background-color 250ms ease-in, backdrop-filter 250ms ease-in;
+}
+
+.enlarged > div {
+  position: absolute !important;
+  aspect-ratio: 16/9;
+}
+
+.enlarged button {
+  top: 5px;
+  right: 5px;
 }
 
 @media (max-width: 830px) {
@@ -210,7 +272,7 @@ body {
 }
 
 .show-more-link:focus-visible {
-  box-shadow: 0 2px 0 0 var(--border-color);
+  box-shadow: 0 2px 0 0 var(--font-color);
 }
 
 .show-more-link img{
@@ -276,9 +338,7 @@ body {
   opacity:0;
 }
 
-.hide {
-  display:none;
-}
+
 
 .flex-container {
   display: flex;

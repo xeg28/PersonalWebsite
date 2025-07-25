@@ -85,10 +85,14 @@ nav > .nav-icon {
 }
 
 .nav-links a.active {
-	outline: none;
 	color: var(--font-color);
 	font-weight: 600;
 }
+
+.nav-links a.focus-visible {
+	outline: 2px solid var(--font-color) !important;
+}
+
 
 .nav-links a:hover {
 	border-color:#1b1b1b;
@@ -185,6 +189,10 @@ nav > .nav-icon {
 	outline: none;
 }
 
+.theme-toggle:focus-visible {
+	outline: 2px solid var(--font-color) !important;
+}
+
 .mobile-nav {
 	backdrop-filter: blur(2px);
 	background-color: var(--nav-background);
@@ -244,10 +252,6 @@ nav > .nav-icon {
 
 	.menu-open .nav-content a{
 		color: black;
-	}
-	.menu-open .nav-content  a.active{
-		color: #5bb9fc;
-		text-shadow: .2px .2px .2px black;
 	}
 
 	.nav-btn-x:after {

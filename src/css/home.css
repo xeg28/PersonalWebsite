@@ -26,15 +26,11 @@
 }
 
 .picture {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
+    border-radius: .5vw;
 }
 
 .picture img {
     width: 100%;
-    max-width: 150px;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: .5vw;
@@ -59,7 +55,7 @@
     #about-text .picture {
         display: flex !important;
         align-items: center;
-        margin: 10px 0 10px 0;
+        margin: 10px auto ;
     }
     #about-text .picture img{
         border-radius: 10px;
@@ -77,11 +73,11 @@
 	display: block;
 	width: 30px;
 	height: 30px;
-	background-size: 30px 30px;
 }
 
 .icon img {
     height: 100%;
+    width: 100%;
     object-fit: contain;
     vertical-align: center;
     filter: var(--image-filter);
@@ -131,12 +127,9 @@
     outline: none !important;
 }
 
-.email img {
-    display: block;
-    width: 30px;
-    filter: var(--image-filter);
+.email:focus-visible {
+    outline: 2px solid var(--font-color) !important;
 }
-
 
 .copy-message {
     position: fixed;

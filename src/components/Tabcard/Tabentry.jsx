@@ -9,7 +9,9 @@ function Tabentry(props) {
 
   return (
     <div className="tab-entry" id={props.id}>
-        <img src={props.img} alt="" />
+        <div className="tab-entry-img">
+          <img src={props.img} alt="" />
+        </div>
         <div className="entry-text">
           <div className="entry-date">{props.date}</div>
           <div className="entry-title">{props.title}</div>

@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import '../index.css';
 import '../css/home.css';
 import { motion, AnimatePresence } from "framer-motion";
+import ImageWithLoader from './ImageWithLoader';
 
 
 function useImagePreload(src) {
@@ -48,14 +49,16 @@ function Home() {
       <div id="about">
         <div id="about-text">
           <div className="monospace fs-700" id="name">Emmanuel Gonzalez</div>
-          <div className='picture'><img src="images/headshot.webp" alt="" /></div>
+          <ImageWithLoader height='150px' width='150px' 
+            src="images/headshot.webp" alt="Headshot" className="picture"/>
           <div className="monospace fs-400 text-primary">
             I'm a Computer Science graduate from California State University, Los Angeles, 
             with a strong interest in software development. I'm now seeking a software development internship to build professional skills, learn 
             new technologies, and grow as a team contributor.
           </div>
         </div>
-        <div className='picture'><img src="images/headshot.webp" alt="" /></div>
+        <ImageWithLoader height='150px' width='150px' 
+        src="images/headshot.webp" alt="Headshot" className="picture"/>
       </div>
 
       <div>

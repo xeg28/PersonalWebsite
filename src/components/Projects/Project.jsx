@@ -195,6 +195,7 @@
 import '../../css/projects.css';
 import {useEffect, useState} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import ImageWithLoader from '../ImageWithLoader';
 function Project(props) {
   const [showPopup, setShowPopup] = useState(false);
   const [slideAnimation, setSlideAnimation] = useState({});
@@ -246,10 +247,12 @@ function Project(props) {
   return (
     <div className="project-card">
       <div className="project-content">
-        <div className="project-img-container">
-          <img src={props.img} alt="" />
-          <div className='project-title'>{props.title}</div>
-          <div>{props.description}</div>
+        <div className="">
+          <ImageWithLoader src={props.img} alt="ProjectImage" className="project-img-container" enlargeable/>
+          <div className="project-summary" style={{marginTop: ".25em"}}>
+            <div className='project-title'>{props.title}</div>
+            <div>{props.description}</div>  
+          </div>
         </div>
         <div>
           {props.technologies && (

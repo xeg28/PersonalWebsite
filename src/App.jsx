@@ -7,27 +7,6 @@ import Projects from './components/Projects/Projects';
 
 
 function App() {
-    useEffect(() => {
-        const images = [
-            'images/SnakeGameMenu.png', 
-            'images/SnakeGameplay.png', 
-            'images/TypingTestTitle.png',
-            'images/TypingTestResults.png', 
-            'images/mediaProject(home).webp',
-            'images/mediaProject(upload).webp',
-            'images/mediaProject(viewImage).webp', 
-            'images/mediaProject(viewVideo).webp',
-            'images/PongGame(Gameplay).webp',
-            'images/PongGame(Settings).webp', 
-            'images/OverwrappedMenu.webp',
-            'images/OverwrappedGame.webp'
-        ]   
-        images.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-        });
-    }, []);
-    
 
     const [isLoading, setIsLoading] = useState(true);
 

@@ -76,15 +76,15 @@ function Navbar() {
         }
         const root = document.querySelector(":root");
         const storageTheme = localStorage.getItem("theme");
-        if(storageTheme === "dark") {
-            root.classList.add("dark");
-            root.classList.remove("light");
-            setTheme("dark");
-        } 
-        else {
+        if(storageTheme === "light") {
             root.classList.add("light");
             root.classList.remove("dark");
             setTheme("light");
+        } 
+        else {
+            root.classList.add("dark");
+            root.classList.remove("light");
+            setTheme("dark");
         }
     }, [theme])
 
@@ -104,7 +104,7 @@ function Navbar() {
             else {
                 setIsMobile(false);
                 if(showNav)
-                    document.querySelector("body").classList.remove("no-scroll");
+                    document.querySelector("body").classList.add("no-scroll");
             }
         };
         updateOffset();
@@ -135,15 +135,29 @@ function Navbar() {
                             offset={-navOffset}
                             duration={500}
                             activeClass=''
+                            tabIndex="0"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault(); // Prevent scrolling caused by Space
+                                e.target.click(); // Trigger the click event
+                                }
+                            }}
                             >About</Link></li>
                         <li><Link 
-                        className={ 'route'} 
+                            className={ 'route'} 
                             id="lk-experience"
                             to={"experience"}
                             smooth={true} 
                             offset={-navOffset}
                             duration={500}
                             activeClass=''
+                            tabIndex="0"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault(); // Prevent scrolling caused by Space
+                                e.target.click(); // Trigger the click event
+                                }
+                            }}  
                             >Experience</Link></li>
                         <li>
                             <Link className={ 'route'} 
@@ -153,6 +167,13 @@ function Navbar() {
                             offset={-navOffset}
                             duration={500}
                             activeClass=''
+                            tabIndex="0"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault(); // Prevent scrolling caused by Space
+                                e.target.click(); // Trigger the click event
+                                }
+                            }}
                             >Projects</Link></li>
                     </div>)
 

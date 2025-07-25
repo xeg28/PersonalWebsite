@@ -38,7 +38,11 @@
   color: var(--font-color);
 }
 
-.tab-button:focus, .tab-button:focus-visible {
+.tab-button:focus-visible {
+  outline: 2px solid var(--font-color) !important;
+}
+
+.tab-button:focus {
   outline: none;
 }
 
@@ -94,12 +98,19 @@
   font-size: 1.5em;
 }
 
-.tab-entry > img {
+.tab-entry-img {
   height: 36px;
   width: 36px;
-  object-fit: contain;
   margin-left: 22px;
   border-radius: 50%;
   z-index: 1;
   border: 2px solid var(--secondary-color);
+  background-color: 2px solid var(--secondary-color);
+}
+
+.tab-entry-img img {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  height: 100%;
 }
