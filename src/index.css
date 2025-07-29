@@ -94,9 +94,6 @@
   font-weight: 600 !important;
 }
 
-.above {
-  z-index: 4 !important;
-}
 
 .hidden {
   display:none;
@@ -170,6 +167,7 @@
   backdrop-filter: blur(2px);
   height: 100dvh;
   width: 100vw;
+  z-index: 4;
   top: 0;
   left: 0;
   transition: background-color 250ms ease-in, backdrop-filter 250ms ease-in;
@@ -178,11 +176,16 @@
 .enlarged > div {
   position: absolute !important;
   aspect-ratio: 16/9;
+  cursor: pointer;
 }
 
 .enlarged button {
   top: 5px;
   right: 5px;
+}
+
+.collapsing {
+  z-index: 2 !important;
 }
 
 @media (max-width: 830px) {
