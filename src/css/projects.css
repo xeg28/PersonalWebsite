@@ -78,7 +78,7 @@
 
 .sliding-track {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .technologies, .technologies-lg {

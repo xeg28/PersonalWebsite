@@ -295,8 +295,9 @@ function Projects() {
           img="images/XClone.webp" 
           title="X Clone"
           description="An X clone created with React and asp.net."
-          detail="I created an X Clone with React and asp.net to gain more experience with full-stack development.
-          I also created this project to learn new technologies like asp.net and TypeScript."
+          detail="I created an X Clone using React and ASP.NET to gain more experience with full-stack 
+          development. This project also helped me learn new technologies like ASP.NET, TypeScript, 
+          and how to build and consume RESTful APIs."
           features={["Users can register", "Emails are validated", "JWT for user authentication", 
           "Refresh tokens for session management",  "Users can reset their password"
           ]}
