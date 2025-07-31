@@ -3,7 +3,7 @@
   position: relative;
 }
 .tooltip {
-  position: absolute;
+  /* position: absolute; */
   background-color: var(--secondary-color);
   font-family: monospace;
   font-size: var(--fs-400);

@@ -265,7 +265,7 @@ function Project(props) {
                   {props.technologies.map((technology, index) => (
                     <div key={"technology_" + index}>
                       <Tooltip text={technologies[technology].name} >
-                        <a href={technologies[technology].url} target="_blank" title={technologies[technology].name}>
+                        <a href={technologies[technology].url} target="_blank">
                           <img src={`svg/${technology}.svg`} alt={technologies[technology].name} />
                         </a>
                       </Tooltip>

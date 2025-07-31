@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import '../css/Tooltip.css';
 
-const Tooltip = ({ children, text}) => {
+const Tooltip = ({ children, text, fixed}) => {
   const targetRef = useRef();
   const tooltipRef = useRef();
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -15,10 +15,11 @@ const Tooltip = ({ children, text}) => {
       const wrapperRect = document
         .getElementById('tooltip-wrapper')
         .getBoundingClientRect();
-
-      let yValue = rect.top - wrapperRect.top - 40;
-      if(yValue <= 0) {
-        yValue = rect.top - wrapperRect.top + 5 + rect.height;
+      
+      let elementPos = fixed ? rect.top : rect.top - wrapperRect.top;
+      let yValue = elementPos - 40;
+      if(yValue <= window.scrollY) {
+        yValue = elementPos + 5 + rect.height;
       }
       setCoords({
         x: rect.left,
@@ -37,6 +38,7 @@ const Tooltip = ({ children, text}) => {
       class="tooltip"
       ref={tooltipRef}
       style={{
+        position: `${fixed ? 'fixed' : 'absolute'}`,
         top: coords.y,
         left: coords.x,
         x: `${coords.translateX}`

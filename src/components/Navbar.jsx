@@ -180,7 +180,7 @@ function Navbar() {
 
             }
 
-            <Tooltip text={theme =="dark" ? "Light" : "Dark"}>
+            <Tooltip text={theme =="dark" ? "Light" : "Dark"} fixed>
               <button className="theme-toggle" onClick={toggleTheme}>
               {theme == "dark" ?
                 (<img src="svg/light.svg" alt="" />) :
