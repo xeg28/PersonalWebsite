@@ -1,11 +1,11 @@
-import { useState,useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function ImageWithLoader({ className, width, height, src, alt, enlargeable}) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [enlarge, setEnlarge] = useState(false);
   const [isAbove, setIsAbove] = useState(false);
-  const [isEnlargable, setIsEnlargeable] = useState(enlargeable);
+  const [isEnlargable, setIsEnlargeable] = useState(enlargeable && window.innerWidth > 685);
   const [animations, setAnimations] = useState({});
   const containerRef = useRef(null);
 
@@ -79,6 +79,7 @@ function ImageWithLoader({ className, width, height, src, alt, enlargeable}) {
       return !prev;
     })
   }
+
 
   useEffect(() => {
     let resizeTimeout;

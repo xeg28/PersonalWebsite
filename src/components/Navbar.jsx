@@ -1,19 +1,11 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-scroll';
+import { useLocation } from 'react-router-dom';
 import '../css/navbar.css'
 import Tooltip from './Tooltip';
+import NavLink from './NavLink';
 
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    } else {
-      entry.target.classList.remove('show');
-    }
-  });
-});
 
 function activateLinks() {
   let top = window.scrollY;
@@ -43,7 +35,8 @@ function Navbar() {
   const [theme, setTheme] = useState("");
   const [showNav, setShowNav] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const location = useLocation();
+  const [onMainPage, setOnMainPage] = useState(location.pathname === '/');
 
   const toggleTheme = () => {
     if (theme === "dark") {
@@ -63,10 +56,28 @@ function Navbar() {
   }
 
   useEffect(() => {
-    if (showNav) {
-      activateLinks();
+    activateLinks();
+    if (location.pathname === '/contact') {
+      setOnMainPage(false);
+    } 
+    else if(location.pathname === '/'){
+      setOnMainPage(true);
     }
+  }, [location])
+
+  useEffect(() => {
+    activateLinks();
   }, [showNav])
+
+  useEffect(() => {
+    if(!onMainPage) return;
+    const state = location.state;
+    if(state && state.scrollTo) {
+      let scrollId = state.scrollTo;
+      let link = document.getElementById(scrollId);
+      if(link) link.click();
+    }
+  }, [onMainPage])
 
   useEffect(() => {
     if (theme === "dark") {
@@ -108,9 +119,9 @@ function Navbar() {
           document.querySelector("body").classList.add("no-scroll");
       }
     };
+
+
     updateOffset();
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((el) => observer.observe(el));
     window.addEventListener('scroll', activateLinks);
     window.addEventListener('resize', updateOffset);
 
@@ -128,59 +139,17 @@ function Navbar() {
           <div className="nav-content">
             {(!isMobile) &&
               (<div className="btn-group nav-links" id="btn-group">
-                <li><Link
-                  className={'route active'}
-                  id="lk-home"
-                  to="home"
-                  smooth={true}
-                  offset={-navOffset}
-                  duration={500}
-                  activeClass=''
-                  tabIndex="0"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault(); // Prevent scrolling caused by Space
-                      e.target.click(); // Trigger the click event
-                    }
-                  }}
-                >About</Link></li>
-                <li><Link
-                  className={'route'}
-                  id="lk-experience"
-                  to={"experience"}
-                  smooth={true}
-                  offset={-navOffset}
-                  duration={500}
-                  activeClass=''
-                  tabIndex="0"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault(); // Prevent scrolling caused by Space
-                      e.target.click(); // Trigger the click event
-                    }
-                  }}
-                >Experience</Link></li>
-                <li>
-                  <Link className={'route'}
-                    id="lk-projects"
-                    to="projects"
-                    smooth={true}
-                    offset={-navOffset}
-                    duration={500}
-                    activeClass=''
-                    tabIndex="0"
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault(); // Prevent scrolling caused by Space
-                        e.target.click(); // Trigger the click event
-                      }
-                    }}
-                  >Projects</Link></li>
+                <NavLink id='lk-home' to={`${onMainPage ? 'home' : '/'}`} navOffset={navOffset} text='About' 
+                  {... !onMainPage && {doesRoute: true}} active/>
+                <NavLink id='lk-experience' to={`${onMainPage ? 'experience' : '/'}`} navOffset={navOffset} 
+                  text='Experience' {... !onMainPage && {doesRoute: true}}/>
+                <NavLink id='lk-projects' to={`${onMainPage ? 'projects' : '/'}`} navOffset={navOffset} 
+                  text='Projects' {... !onMainPage && {doesRoute: true}}/>
+                <NavLink id='lk-contact' to='/contact' navOffset={navOffset} text='Contact' doesRoute/>
               </div>)
 
             }
 
-            <Tooltip text={theme =="dark" ? "Light" : "Dark"} fixed>
               <button className="theme-toggle" onClick={toggleTheme}>
               {theme == "dark" ?
                 (<img src="svg/light.svg" alt="" />) :
@@ -191,7 +160,7 @@ function Navbar() {
                   (<img src="svg/close.svg" alt="" />) :
                   (<img src="svg/menu.svg" alt="" />)}
               </button>
-            </Tooltip>
+          
           </div>
         </nav>
         <AnimatePresence>
@@ -202,36 +171,13 @@ function Navbar() {
               exit={{ x: "-100%", opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <li><Link
-                className={'route active'}
-                id="lks-home"
-                to="home"
-                smooth={true}
-                offset={-navOffset}
-                duration={500}
-                activeClass=''
-                onClick={toggleNav}
-              >About</Link></li>
-              <li><Link
-                className={'route'}
-                id="lks-experience"
-                to="experience"
-                smooth={true}
-                offset={-navOffset}
-                duration={500}
-                activeClass=''
-                onClick={toggleNav}
-              >Experience</Link></li>
-              <li>
-                <Link className={'route'}
-                  id="lks-projects"
-                  to="projects"
-                  smooth={true}
-                  offset={-navOffset}
-                  duration={500}
-                  activeClass=''
-                  onClick={toggleNav}
-                >Projects</Link></li>
+              <NavLink id='lks-home' to={`${onMainPage ? 'home' : '/'}`} navOffset={navOffset} text='About' 
+                  {... !onMainPage && {doesRoute: true}} {...onMainPage && {onClick: toggleNav}} active/>
+              <NavLink id='lks-experience' to={`${onMainPage ? 'experience' : '/'}`} navOffset={navOffset} 
+                  text='Experience' {... !onMainPage && {doesRoute: true}} {...onMainPage && {onClick: toggleNav}}/>
+              <NavLink id='lks-projects' to={`${onMainPage ? 'projects' : '/'}`} navOffset={navOffset} 
+                text='Projects' {... !onMainPage && {doesRoute: true}} {...onMainPage && {onClick: toggleNav}}/>
+              <NavLink id='lks-contact' to='/contact' navOffset={navOffset} text='Contact' doesRoute onClick={toggleNav}/>
             </motion.div>
           )}
         </AnimatePresence>

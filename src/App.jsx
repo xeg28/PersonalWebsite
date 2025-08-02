@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Tabcard from './components/TabCard/Tabcard';
 import Projects from './components/Projects/Projects';
@@ -39,7 +38,6 @@ function App() {
             ) : (
                 // Main app content
                 <>
-                    <Navbar />
                     <div className="container">
                         <Home />
                         <Tabcard />

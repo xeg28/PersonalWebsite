@@ -1,10 +1,4 @@
-:root.dark {
-    --inverted-img-filter: invert(0);
-}
 
-:root.light {
-    --inverted-img-filter: invert(1);
-}
 
 .projects-container {
     display: grid;

@@ -13,6 +13,7 @@
   --image-loader: #585858;
   --image-filter: invert(1);
   --image-filter-secondary: invert(1);
+  --inverted-img-filter: invert(0);
   --nav-background: #03060ebe;
 
   font-synthesis: none;
@@ -38,6 +39,7 @@
   --secondary-color: #1b1b1b;
   --image-filter: invert(1);
   --image-filter-secondary: invert(1);
+  --inverted-img-filter: invert(0);
   --nav-background: #03060ebe;  
 }
 
@@ -50,6 +52,7 @@
   --secondary-color: #afafaf;
   --image-filter: invert(.3);
   --image-filter-secondary: invert(0);
+  --inverted-img-filter: invert(1);
   --nav-background: rgb(230, 230, 230, .75);
 }
 
@@ -131,6 +134,10 @@
   gap: 2.5rem;
   width: 750px;
   padding-bottom: 4rem;
+}
+
+.section:first-of-type {
+  margin-top: 1rem;
 }
 
 .loading {

@@ -96,21 +96,19 @@ function Home() {
           <a id="resume-btn" href="https://docs.google.com/document/d/1a-rLQc_nsyZ85JaXSYLviFeQ45Sbbyy5frLvyy8ehso/export?format=pdf" download>Resume
             <img src="svg/doc-download.svg" alt="" />
           </a>
-          <Tooltip text="GitHub">
-            <a className="github icon" href='https://github.com/xeg28' target="_blank">
-              <img src="svg/github.svg" alt="" />
-            </a>
-          </Tooltip>
-          <Tooltip text="LinkedIn">
-            <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank" >
-              <img src="svg/linkedin.svg" alt="" />
-            </a>
-          </Tooltip>
-          <Tooltip text="Copy Email">
-            <button className="email icon" onClick={copyEmail}>
-              <img src="images/email.png" alt="" />
-            </button>
-          </Tooltip>
+          
+          <a className="github icon" href='https://github.com/xeg28' target="_blank">
+            <img src="svg/github.svg" alt="" />
+          </a>
+          
+          <a className="linkedin icon" href='https://www.linkedin.com/in/xeg28/' target="_blank" >
+            <img src="svg/linkedin.svg" alt="" />
+          </a>
+          
+          <button className="email icon" onClick={copyEmail}>
+            <img src="images/email.png" alt="" />
+          </button>
+          
         </div>
       </div>
       <AnimatePresence>
