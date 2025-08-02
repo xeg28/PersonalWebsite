@@ -26,13 +26,13 @@ export const addMessage = (msg, setMessages) => {
   if(isInSet) return;
 
 
-  // setTimeout(() => {
-  //   setMessages((prev) => {
-  //     const newSet = new Set(prev);
-  //     newSet.delete(msg);
-  //     return newSet;
-  //   });
-  // }, 5000); 
+  setTimeout(() => {
+    setMessages((prev) => {
+      const newSet = new Set(prev);
+      newSet.delete(msg);
+      return newSet;
+    });
+  }, 5000); 
 }
 
 function MessageCard({messages, setMessages}){
