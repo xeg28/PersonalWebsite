@@ -67,10 +67,15 @@ function Home() {
         <div className="show-more-wrapper" id="more-about" >
           <div id="more-text">
             <div className="icon-text monospace fs-300 text-primary">
-              <img src="svg/location.svg" alt="" />
-              <span>Based in Bell, California |&nbsp;</span>
-              <img src="svg/phone.svg" alt="" />
-              <span>(562) 390-2955</span>
+              <span>
+                 <img src="svg/location.svg" alt="" />
+                <span>Based in Bell, California</span>
+                <span className="separator">&nbsp;|&nbsp;</span>
+              </span>
+              <span>
+                <img src="svg/phone.svg" alt="" />
+                <span>(562) 390-2955</span>
+              </span>
             </div>
             <span className="paragraph">
               I am an alumnus of California State University, Los Angeles, with a Bachelor's degree in Computer Science. As a kid,

@@ -164,3 +164,13 @@
     align-items: center;
     flex-direction: row;
 }
+
+@media (max-width: 370px) {
+    .icon-text .separator {
+        display: none;
+    }
+   .icon-text {
+    align-items: start;
+    flex-direction: column;
+}
+}
