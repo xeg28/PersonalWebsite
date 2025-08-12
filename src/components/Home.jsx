@@ -3,7 +3,6 @@ import '../index.css';
 import '../css/home.css';
 import { motion, AnimatePresence } from "framer-motion";
 import ImageWithLoader from './ImageWithLoader';
-import Tooltip from './Tooltip';
 
 
 function useImagePreload(src) {

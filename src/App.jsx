@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Home from './components/Home';
 import Tabcard from './components/TabCard/Tabcard';
 import Projects from './components/Projects/Projects';
