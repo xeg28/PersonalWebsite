@@ -22,7 +22,8 @@ const technologies = {
   'mysql': { name: "MySQL", url: 'https://dev.mysql.com/doc/' },
   'sql': { name: "SQL", url: 'https://learn.microsoft.com/en-us/sql/?view=sql-server-ver17' },
   'ts': { name: "TypeScript", url: "https://www.typescriptlang.org/docs/" },
-  "aspnet": { name: "ASP.NET", url: "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-9.0" }
+  "aspnet": { name: "ASP.NET", url: "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-9.0" },
+  "pgsql": {name:"PostgreSQL", url: "https://www.postgresql.org/docs/"}
 };
 
 function Project(props) {
@@ -139,7 +140,7 @@ function Project(props) {
                 <img src="svg/close.svg" alt="" />
               </button>
               <div className='scroll custom-scroll'>
-                <div className="mb-1">{props.detail}</div>
+                <div className="mb-1" dangerouslySetInnerHTML={{ __html: props.detail }}/>
                 <div className="mb-1">
                   <div className="title-color fs-400 fw-600">Features{props.inProgress && (<span>&nbsp;Completed</span>)} </div>
                   <ul className="project-features">

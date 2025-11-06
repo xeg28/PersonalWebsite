@@ -59,11 +59,13 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  --btn-image-size: calc(var(--fs-400) + 5px);
 }
 
 .form-container button img {
-  height: calc(var(--fs-400) + 5px);
+  height: 100%;
   font-weight: 400;
   margin-left: .25em;
   filter: var(--inverted-img-filter);
 }
+

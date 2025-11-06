@@ -43,7 +43,9 @@ function Contact() {
           <div>
             <button type="submit">
               <span>Send Message</span> 
-              <img src="svg/send.svg" />
+              <div className="btn-image-container">
+                <img src="svg/send.svg" />
+              </div>
             </button>
           </div>
         </div>

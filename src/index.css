@@ -156,6 +156,12 @@
   }
 }
 
+.btn-image-container{
+  height: var(--btn-image-size);
+  width: var(--btn-image-size);
+  
+}
+
 .image-container {
     display:flex;
     flex-direction: column;
